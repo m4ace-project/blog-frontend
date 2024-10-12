@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer2 from '../components/common/Footer2'
 
 function Google() {
   return (
@@ -58,15 +59,11 @@ function Google() {
             </div>
 
         </div>
-
-        <div className='grid grid-cols-2 mt-8 md:ms-10'>
-            <p className=''>English (United States) </p>
-            <div className='inline-flex gap-5 ps-[30%] md:ps-[45%]'>
-                <p>Help</p>
-                <p>Privacy</p>
-                <p>Terms</p>
-            </div>
+        <div>
+            <Footer2 />
         </div>
+
+
 
     </div>
 
