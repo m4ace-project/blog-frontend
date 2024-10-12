@@ -9,7 +9,7 @@ function Welcome() {
 
             <p className='text-center font-bold text-6xl mb-5'>WELCOME BACK</p>
         
-            <div className='grid w-[300px] mx-auto mb-10'>
+            <div className='grid w-[300px] mx-auto mb-6'>
             
                 <button className='border border-black h-10 rounded-full font-bold'>Continue with Email</button>
                 <button className='my-7 border border-black h-10 rounded-full font-bold'>Continue with Google</button>
@@ -17,10 +17,10 @@ function Welcome() {
             
             </div>
         
-            <div className='flex  items-center'>
+            <div className='flex place-content-center'>
             
                 <p>Don't have an account?</p>
-                <p className='font-bold'>Sign up</p>
+                <p className='font-bold ps-5'>Sign up</p>
             
             </div>
 
