@@ -4,7 +4,10 @@ import Google from './pages/Google';
 import Verify from './pages/Verify';
 import Facebook from './pages/Facebook';
 import Welcome from './pages/Welcome';
+import Account from './pages/Account';
+import Check from './pages/Check';
 import { Routes, Route } from 'react-router-dom';
+ 
 
 
 function App() {
@@ -13,10 +16,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={ <Verify /> } />
-        <Route path="/" element={ <Google /> } /> 
+        <Route path="/facebook" element={ <Facebook /> } /> 
+        <Route path="/verify" element={ <Verify /> } />
+        <Route path="/google" element={ <Google /> } /> 
         <Route path="/" element={ <Welcome /> } />
-        <Route path="/" element={ <Facebook /> } />
+        <Route path="/account" element={ <Account /> } />
+        <Route path="/check" element={ <Check /> } />
       </Routes>
 
      
