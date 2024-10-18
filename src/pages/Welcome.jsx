@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 function Welcome() {
   return (
     <div>
@@ -12,8 +12,8 @@ function Welcome() {
             <div className='grid w-[300px] mx-auto mb-6'>
             
                 <button className='border border-black h-10 rounded-full font-bold'>Continue with Email</button>
-                <button className='my-7 border border-black h-10 rounded-full font-bold'>Continue with Google</button>
-                <button className='border border-black h-10 rounded-full font-bold'>Continue with Facebook</button>
+                <Link to={'/google'} className='flex justify-center items-center my-7 border border-black h-10 rounded-full font-bold'>Continue with Google</Link>
+                <Link to={'/facebook'} className='flex justify-center items-center border border-black h-10 rounded-full font-bold'>Continue with Facebook</Link>
             
             </div>
         
