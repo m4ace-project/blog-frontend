@@ -13,10 +13,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={ <Verify /> } />
-        <Route path="/" element={ <Google /> } /> 
-        <Route path="/" element={ <Welcome /> } />
-        <Route path="/" element={ <Facebook /> } />
+        <Route path="verify/" element={ <Verify /> } />
+        <Route path="google/" element={ <Google /> } /> 
+        <Route path="welcome/" element={ <Welcome /> } />
+        <Route path="facebook/" element={ <Facebook /> } />
       </Routes>
 
      
