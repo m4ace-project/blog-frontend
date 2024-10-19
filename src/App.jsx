@@ -16,8 +16,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/facebook" element={ <Facebook /> } /> 
         <Route path="/verify" element={ <Verify /> } />
+        <Route path="/facebook" element={ <Facebook /> } /> 
         <Route path="/google" element={ <Google /> } /> 
         <Route path="/" element={ <Welcome /> } />
         <Route path="/account" element={ <Account /> } />
