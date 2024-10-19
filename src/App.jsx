@@ -6,7 +6,13 @@ import Facebook from './pages/Facebook';
 import Welcome from './pages/Welcome';
 import Account from './pages/Account';
 import Check from './pages/Check';
+import Whatsapp from './pages/Whatsapp';
+import Login from './pages/Login';
+import Find from './pages/Find';
 import { Routes, Route } from 'react-router-dom';
+
+
+
  
 
 
@@ -22,6 +28,9 @@ function App() {
         <Route path="/" element={ <Welcome /> } />
         <Route path="/account" element={ <Account /> } />
         <Route path="/check" element={ <Check /> } />
+        <Route path="/whatsapp" element={ <Whatsapp /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path="/find" element={ <Find /> } />
       </Routes>
 
      
