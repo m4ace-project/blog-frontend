@@ -4,7 +4,7 @@ function Account() {
   return (
     <div>
       <div className="bg-[#FFFCD8] h-[100vh] flex flex-col justify-center items-center">
-    <div className="bg-white h-[80vh] w-[80vw] flex flex-col justify-center  rounded-xl
+    <div className="bg-white h-[80vh] w-[80vw] flex flex-col justify-center rounded-xl
                 border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400">
     <div>
         <img className=" w-10 pt-3 pl-3" src="./src/assets/google.png" alt=""/>.
