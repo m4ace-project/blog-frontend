@@ -42,7 +42,7 @@ function App() {
         <Route path="/whatsapp" element={ <Whatsapp /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/find" element={ <Find /> } />
-        <Route path="/travel" element={ <Find /> } />
+        <Route path="/travel" element={ <Travel /> } />
         <Route path="/games" element={ <Games /> } />
         <Route path="/food" element={ <Food /> } />
         <Route path="/fitness" element={ <Fitness /> } />

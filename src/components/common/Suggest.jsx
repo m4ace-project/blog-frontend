@@ -3,7 +3,7 @@ import React from 'react'
 function Suggest() {
   return (
     <div>
-      <p class="text-[#001F54] text-xl font-bold">Suggested Top Authors/ Writers/ Creators</p>
+      <p class="text-[#001F54] text-sm  font-bold md:text-3xl">Suggested Top Authors/ Writers/ Creators</p>
     </div>
   )
 }
