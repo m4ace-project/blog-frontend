@@ -4,7 +4,7 @@ import Google from './pages/Google';
 import Verify from './pages/Verify';
 import Facebook from './pages/Facebook';
 import Welcome from './pages/Welcome';
-import Widget from './components/widget/Widget';
+import CreatePost from './pages/CreatePost';
 import Confirm from './pages/Confirm';
 import Account from './pages/Account';
 import Check from './pages/Check';
@@ -38,9 +38,9 @@ function App() {
         <Route path="/verify" element={ <Verify /> } />
         <Route path="/facebook" element={ <Facebook /> } /> 
         <Route path="/google" element={ <Google /> } /> 
+        <Route path="/createpost" element={ <CreatePost /> } /> 
         <Route path="/confirm" element={ <Confirm /> } /> 
         <Route path="/" element={ <Welcome /> } />
-        <Route path="/widget" element={ <Widget /> } />
         <Route path="/account" element={ <Account /> } />
         <Route path="/check" element={ <Check /> } />
         <Route path="/whatsapp" element={ <Whatsapp /> } />
