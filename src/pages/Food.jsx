@@ -12,14 +12,14 @@ function Food() {
         <div className='text-center'>
         <Suggest/>
         </div>
-        <p className='text-center font-bold mt-3 text-xs md:text-base'>Travel and Adventure</p>
+        <p className='text-center font-bold mt-3 text-xs md:text-base'>Food and Cooking</p>
         <div className='flex text-[#001F54] justify-center items-center mt-5'>
           <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Rick Steves</li>
-            <li className='mt-3 '>Lonely Planet</li>
-            <li className='mt-3 '>Paul Theroux</li>
-            <li className='mt-3 '>Anthony Bourdain</li>
-            <li className='mt-3 '>Raya Sorkhabi</li>
+            <li className='mt-3 ' >Gordon Ramsay</li>
+            <li className='mt-3 '>Julia Child</li>
+            <li className='mt-3 '>Ina Garten</li>
+            <li className='mt-3 '>Nigella Lawson</li>
+            <li className='mt-3 '>Jamie Oliver</li>
           </ul>
           <div className='ml-[20%] ' >
             <Checkbox/>

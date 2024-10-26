@@ -1,4 +1,9 @@
 import React from 'react'
+import Navbar from '../components/common/Navbar'
+import Checkbox from '../components/pages/Checkbox'
+import Suggest from '../components/common/Suggest'
+import Subscribe from '../components/common/Subscribe'
+import Footer from '../components/common/Footer'
 
 function Personalfinance() {
   return (
@@ -12,14 +17,14 @@ function Personalfinance() {
         <div className='text-center'>
         <Suggest/>
         </div>
-        <p className='text-center font-bold mt-3 text-xs md:text-base'>Travel and Adventure</p>
+        <p className='text-center font-bold mt-3 text-xs md:text-base'>Personal Finance and Investing</p>
         <div className='flex text-[#001F54] justify-center items-center mt-5'>
           <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Rick Steves</li>
-            <li className='mt-3 '>Lonely Planet</li>
-            <li className='mt-3 '>Paul Theroux</li>
-            <li className='mt-3 '>Anthony Bourdain</li>
-            <li className='mt-3 '>Raya Sorkhabi</li>
+            <li className='mt-3 ' >Dave Ramsey</li>
+            <li className='mt-3 '>Robert Kiyosaki</li>
+            <li className='mt-3 '>Suze Orman</li>
+            <li className='mt-3 '>Ramit Sethi</li>
+            <li className='mt-3 '>Jim Cramer</li>
           </ul>
           <div className='ml-[20%] ' >
             <Checkbox/>

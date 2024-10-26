@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from '../components/common/Navbar'
+import Footer from '../components/common/Footer'
 
 function Personalization() {
   return (
@@ -7,25 +9,29 @@ function Personalization() {
       <div className=' bg-white w-[100vw] -mt-24'>
         <Navbar/>
       </div>
-      <div className='text-[#001F54] bg-white mt-5 h-[70vh] w-[60vw] flex flex-col justify-center 
-                border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400'>
-        <div className='text-center'>
-        <Suggest/>
-        </div>
-        <p className='text-center font-bold mt-3 text-xs md:text-base'>Travel and Adventure</p>
-        <div className='flex text-[#001F54] justify-center items-center mt-5'>
-          <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Rick Steves</li>
-            <li className='mt-3 '>Lonely Planet</li>
-            <li className='mt-3 '>Paul Theroux</li>
-            <li className='mt-3 '>Anthony Bourdain</li>
-            <li className='mt-3 '>Raya Sorkhabi</li>
+      <div className='text-[#001F54] bg-white mt-5 h-[70vh] md:w-[60vw] w-[90vw] flex flex-col justify-center 
+                border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 '>
+        <p className='text-center font-bold text-2xl'>Select area of interest</p>
+        <div className='flex text-[#001F54] justify-center mt-10 text-xs md:text-sm font-bold'>
+          <ul className='text-center -ml-[1%]'>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full  py-1' >Travel and Adventure</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Food and Cooking</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Fitness and Wellness</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full py-1 ' >Tech and Gadgets</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Personal Finance and Investing</li>
           </ul>
-          <div className='ml-[20%] ' >
-            <Checkbox/>
+          <div className='ml-[10%] ' >
+          <ul className='text-center'>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full  py-1' > Fashion and Beauty</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Home Improvement and DIY</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Arts and Crafts</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-10 py-1 ' >Gaming and Esports</li>
+            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-10 py-1 ' >Parenting and Family</li>
+          </ul>
           </div>
         </div>
-        <Subscribe/>
+        <div><button className="block mx-auto font-bold bg-[#FF5722] rounded-full mt-10 text-white px-20 py-1 text-sm">Continue</button>
+    </div>
       </div>
       <div className=' bg-white w-[100vw] -mb-24 mt-10'>
         <Footer/>
