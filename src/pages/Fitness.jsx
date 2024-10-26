@@ -1,4 +1,9 @@
 import React from 'react'
+import Navbar from '../components/common/Navbar'
+import Checkbox from '../components/pages/Checkbox'
+import Suggest from '../components/common/Suggest'
+import Subscribe from '../components/common/Subscribe'
+import Footer from '../components/common/Footer'
 
 function Fitness() {
   return (
@@ -11,14 +16,14 @@ function Fitness() {
         <div className='text-center'>
         <Suggest/>
         </div>
-        <p className='text-center font-bold mt-3 text-xs md:text-base'>Travel and Adventure</p>
+        <p className='text-center font-bold mt-3 text-xs md:text-base'>Fitness and Wellness</p>
         <div className='flex text-[#001F54] justify-center items-center mt-5'>
           <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Rick Steves</li>
-            <li className='mt-3 '>Lonely Planet</li>
-            <li className='mt-3 '>Paul Theroux</li>
-            <li className='mt-3 '>Anthony Bourdain</li>
-            <li className='mt-3 '>Raya Sorkhabi</li>
+            <li className='mt-3 ' >Kayla Itsines</li>
+            <li className='mt-3 '>Jillian Michaels</li>
+            <li className='mt-3 '>Adriene Mishler</li>
+            <li className='mt-3 '>Tony Horton</li>
+            <li className='mt-3 '>Deepak Chopra</li>
           </ul>
           <div className='ml-[20%] ' >
             <Checkbox/>

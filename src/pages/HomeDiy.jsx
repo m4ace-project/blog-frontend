@@ -1,4 +1,9 @@
 import React from 'react'
+import Navbar from '../components/common/Navbar'
+import Checkbox from '../components/pages/Checkbox'
+import Suggest from '../components/common/Suggest'
+import Subscribe from '../components/common/Subscribe'
+import Footer from '../components/common/Footer'
 
 function HomeDiy() {
   return (
@@ -11,14 +16,14 @@ function HomeDiy() {
         <div className='text-center'>
         <Suggest/>
         </div>
-        <p className='text-center font-bold mt-3 text-xs md:text-base'>Travel and Adventure</p>
+        <p className='text-center font-bold mt-3 text-xs md:text-base'>Home Improvement and DIY</p>
         <div className='flex text-[#001F54] justify-center items-center mt-5'>
           <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Rick Steves</li>
-            <li className='mt-3 '>Lonely Planet</li>
-            <li className='mt-3 '>Paul Theroux</li>
-            <li className='mt-3 '>Anthony Bourdain</li>
-            <li className='mt-3 '>Raya Sorkhabi</li>
+            <li className='mt-3 ' >Joanna Gaines</li>
+            <li className='mt-3 '>Chip Gaines</li>
+            <li className='mt-3 '>Bob Vila</li>
+            <li className='mt-3 '>Martha Stewart</li>
+            <li className='mt-3 '>Brittany and Scott McCall</li>
           </ul>
           <div className='ml-[20%] ' >
             <Checkbox/>
