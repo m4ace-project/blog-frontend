@@ -3,7 +3,7 @@ import React from 'react'
 function PostHeader() {
   return (
     <div>
-      <div className='bg-white flex gap-[16rem] p-5 ps-9 float-end w-[65%] h-[20%]'>
+      <div className='bg-white flex gap-[13rem] p-5 ps-9 float-end w-[56.5rem] h-[6rem]'>
         <div className='flex gap-5 items-center list-none'>
             <li className='flex gap-2'>Services <img src="./src/assets/Vector2.svg" alt="" /></li>
             <li className='flex gap-2'>Articles <img src="./src/assets/Vector2.svg" alt="" /></li>
