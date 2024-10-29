@@ -14,7 +14,7 @@ function Personalization() {
         <p className='text-center font-bold text-2xl'>Select area of interest</p>
         <div className='flex text-[#001F54] justify-center mt-10 text-xs md:text-sm font-bold'>
           <ul className='text-center -ml-[1%]'>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full  py-1' >Travel and Adventure</li>
+            <Link to={'/travel'}  className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full  py-1' >Travel and Adventure</Link>
             <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Food and Cooking</li>
             <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Fitness and Wellness</li>
             <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full py-1 ' >Tech and Gadgets</li>
@@ -38,6 +38,7 @@ function Personalization() {
       </div>
     </div>
     </div>
+
   )
 }
 

@@ -14,7 +14,7 @@ function Welcome() {
                 <button className='border border-black h-10 rounded-full font-bold'>Continue with Email</button>
                 <Link to={'/google'} className='flex justify-center items-center my-7 border border-black h-10 rounded-full font-bold'>Continue with Google</Link>
                 <Link to={'/facebook'} className='flex justify-center items-center border border-black h-10 rounded-full font-bold'>Continue with Facebook</Link>
-            
+  
             </div>
         
             <div className='flex place-content-center'>
