@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Login() {
   return (
@@ -16,11 +17,12 @@ function Login() {
        type="password" placeholder="password" />
     </div>
     <div className="text-xs flex mt-5 justify-center ">
-      <img className="w-2 h-2 mr-1 relative top-1" src="./Assets/Click  on.png" alt="" />
+      <img className="w-2 h-2 mr-1 relative top-1" src="./src/assets/Click  on.png" alt="" />
       <p className="">Remember password?</p>
       <p className="ml-5">forgot password?</p>
     </div>
-    <div><button className="block mx-auto font-bold bg-[#FF5722] rounded-full mt-5 text-white px-20 py-1 text-sm">Continue</button>
+    <div className='flex  justify-center items-center  '>
+    <Link  to={'./personalization'} className="w-[20vw] font-bold bg-[#FF5722] flex justify-center items-center  rounded-full mt-5 text-white px-20 py-1 text-sm">Continue</Link>
     </div>
   </div> 
     </div>
