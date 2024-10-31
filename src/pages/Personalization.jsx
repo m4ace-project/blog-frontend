@@ -5,7 +5,7 @@ import Footer from '../components/common/Footer'
 function Personalization() {
   return (
     <div>
-      <div className='bg-[#FFFCD8] h-[100vh] flex flex-col  justify-center items-center '>
+      <div className='bg-[#FFFCD8] h-[100vh] flex flex-col  justify-center items-center'>
       <div className=' bg-white w-[100vw] -mt-24'>
         <Navbar/>
       </div>
@@ -15,23 +15,23 @@ function Personalization() {
         <div className='flex text-[#001F54] justify-center mt-10 text-xs md:text-sm font-bold'>
           <ul className='text-center -ml-[1%]'>
             <Link to={'/travel'}  className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full  py-1' >Travel and Adventure</Link>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Food and Cooking</li>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Fitness and Wellness</li>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full py-1 ' >Tech and Gadgets</li>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Personal Finance and Investing</li>
+            <Link to={'./food'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Food and Cooking</Link>
+            <Link to={'./fitness'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Fitness and Wellness</Link>
+            <Link to={'/tech'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full py-1 ' >Tech and Gadgets</Link>
+            <Link to={'/personalfinance'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Personal Finance and Investing</Link>
           </ul>
           <div className='ml-[10%] ' >
           <ul className='text-center'>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full  py-1' > Fashion and Beauty</li>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Home Improvement and DIY</li>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Arts and Crafts</li>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-10 py-1 ' >Gaming and Esports</li>
-            <li className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-10 py-1 ' >Parenting and Family</li>
+            <Link to={'/fashion'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full  py-1' > Fashion and Beauty</Link>
+            <Link to={'/homediy'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Home Improvement and DIY</Link>
+            <Link to={'/arts'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-3 py-1 ' >Arts and Crafts</Link>
+            <Link to={'/gaming'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-10 py-1 ' >Gaming and Esports</Link>
+            <Link to={'/parenting'} className='mt-3 bg-white border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400 rounded-full px-10 py-1 ' >Parenting and Family</Link>
           </ul>
           </div>
         </div>
         <div><button className="block mx-auto font-bold bg-[#FF5722] rounded-full mt-10 text-white px-20 py-1 text-sm">Continue</button>
-    </div>
+        </div>
       </div>
       <div className=' bg-white w-[100vw] -mb-24 mt-10'>
         <Footer/>
