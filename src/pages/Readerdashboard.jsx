@@ -1,9 +1,11 @@
 import React from 'react';
-import NavbarReader from '../components/common/NavbarReader';
+import NavbarReader from '/src/components/common/NavbarReader';
 import Frame340 from '../assets/Frame 340.png';
 import Frame338 from '../assets/Frame 338.png';
 import Frame339 from '../assets/Frame 339.png';
+import Rectangle24 from '../assets/Rectangle 24.png';
 import Rectangle25 from '../assets/Rectangle 25.png';
+import Rectangle27 from '../assets/Rectangle 27.png';
 import Rectangle28 from '../assets/Rectangle 28.png';
 import Govnor from '../assets/Govnor.png';
 
@@ -11,53 +13,67 @@ function ReaderDashboard() {
   return (
     <div className="bg-[#FFFCD8] min-h-screen">
       <NavbarReader />
-
-      <div className="max-w-4xl mx-auto py-8">
+      <div className="max-w-8xl mx-auto px-4 py-8">
        
+        {/* Featured Article */}
         <div className="mb-6">
           <img src={Frame340} alt="Featured" className="w-full rounded-lg" />
-          <h2 className="text-xl font-bold mt-2">
+          <h2 className="text-xl md:text-2xl font-bold mt-2">
             Vegan Parenting Tips: Raising Children on a Plant-Based Diet
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          <div className="relative">
-            <img src={Frame338} alt="Article 1" className="w-full h-60 object-cover rounded-lg" />
-            <div className="absolute bottom-0 bg-opacity-75 bg-black text-white p-2 w-full rounded-b-lg">
-              <p>Police arrests Telegram CEO in France</p>
-            </div>
+        {/* Main Articles Section */}
+        <div className="flex gap-2 mb-6">
+          <div className="relative w-1/2 overflow-hidden rounded-lg">
+            <img src={Frame338} alt="Article 1" className="w-full h-full object-cover" />
           </div>
-          <div className="relative">
-            <img src={Frame339} alt="Article 2" className="w-full h-60 object-cover rounded-lg" />
-            <div className="absolute bottom-0 bg-opacity-75 bg-black text-white p-2 w-full rounded-b-lg">
-              <p>How to Help Survivors of Sexual Abuse Get Justice</p>
+          
+          <div className="relative w-1/2 overflow-hidden rounded-lg">
+            <img src={Frame339} alt="Article 2" className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        {/* Top Posts Section */}
+        <h3 className="text-lg md:text-xl font-bold mb-4">Top Posts</h3>
+        <div className="flex flex-wrap -mx-1">
+          {[Rectangle24, Rectangle25, Govnor, Rectangle27].map((image, index) => (
+            <div key={index} className="w-full sm:w-1/2 lg:w-1/4 px-1 mb-4">
+              <img src={image} alt={`image${index}`} className="w-full rounded-lg" />
+              <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
+                {index === 0
+                  ? "The Ladies are back! Season 2 of “The Smart Money woman” returns with more drama."
+                  : index === 1
+                  ? "EPL: FA takes decision on punishing Haaland for throwing ball at Gabriel"
+                  : index === 2
+                  ? "Edo Guber: Damage you caused will haunt your children - Peter Obi tells INEC, others."
+                  : "Greenbox Commitment to Public Health. The Rise of Affordable Solar Generators."}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Subscription Section */}
+        <div className="flex flex-col-reverse mt-4 md:flex-row items-center justify-between max-w-7xl mx-auto">
+          <div className="md:w-100">
+            <img src={Rectangle28} alt="Subscription Image" className="w-full ml-3 md:h-96 object-cover mx-auto" />
+          </div>
+          <div className="md:w-96 ml-12 text-center p-1">
+            <p className="text-[#001F54] font-inter align-left font-semibold mr-12 mt-4 text-sm md:text-2xl">
+              Never miss a post, video, or exclusive announcement. Subscribe to our newsletter to get instant access to the best men’s style content, delivered straight to your inbox.
+            </p>
+            <div className="mt-6 flex place-content-center">
+              <button className="bg-[#FF5722] text-[#FFFFFF] rounded-md font-inter font-medium text-md w-32 md:w-40 px-4 py-2 mr-3">
+                Subscribe
+              </button>
             </div>
           </div>
         </div>
 
-       
-        <h3 className="text-lg font-bold mb-4">Top Posts</h3>
-        <div className="grid grid-cols-3 gap-4">
-          <div className="relative">
-            <img src={Rectangle25} alt="Top Post 1" className="w-full h-32 object-cover rounded-lg" />
-            <div className="absolute bottom-0 bg-opacity-75 bg-black text-white p-2 w-full rounded-b-lg">
-              <p>Top Post 1 Title</p>
-            </div>
-          </div>
-          <div className="relative">
-            <img src={Rectangle28} alt="Top Post 2" className="w-full h-32 object-cover rounded-lg" />
-            <div className="absolute bottom-0 bg-opacity-75 bg-black text-white p-2 w-full rounded-b-lg">
-              <p>Top Post 2 Title</p>
-            </div>
-          </div>
-          <div className="relative">
-            <img src={Govnor} alt="Top Post 3" className="w-full h-32 object-cover rounded-lg" />
-            <div className="absolute bottom-0 bg-opacity-75 bg-black text-white p-2 w-full rounded-b-lg">
-              <p>Top Post 3 Title</p>
-            </div>
-          </div>
-        </div>
+        {/* Footer Section */}
+        <footer className="bg-[#FFFFFF] text-[#001F54] font-inter font-medium text-sm md:text-lg lg:text-xl p-2 md:p-4 text-center whitespace-nowrap">
+          <p>Copyright &copy; Mentorship For Acceleration 2024. All Rights Reserved</p>
+        </footer>
       </div>
     </div>
   );

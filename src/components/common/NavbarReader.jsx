@@ -1,8 +1,5 @@
 import React from 'react';
-import Frame198 from '../assets/Frame 198.png';
-import ProfileIcon from '../assets/profile.png';
-import Vector from '../assets/Vector.png';
-import SearchIcon from '../assets/search-normal.png';
+
 
 function NavbarReader() {
   return (
@@ -11,17 +8,17 @@ function NavbarReader() {
         <div className="max-w-7xl mx-auto px-2">
           <div className="flex items-center justify-between flex-wrap">
             <div className="flex items-center">
-              <img src={Frame198} alt="logo" className="h-12 w-auto" />
+              <img src= './src/assets/Frame 198.png' alt="logo" className="h-12 w-auto"/>
               <div className="hidden md:flex space-x-4 ml-12">
                 {['Services', 'Articles', 'Pricing', 'Resources', 'Contact Us'].map((item, index) => (
                   <a key={index} href="#" className="text-[#001F54] font-inter font-medium flex hover:text-orange-500">
                     {item}
-                    <img src={Vector} alt="vector" className="h-2 w-2 ml-3 mt-2 hover:text-[#FF5722]" />
+                    <img src='./src/assets/Vector.png' alt="vector" className="h-2 w-2 ml-3 mt-2 hover:text-[#FF5722]" />
                   </a>
                 ))}
                 <form className="relative w-50 flex ml-10 " role="search">
                   <span className="absolute inset-y-0 left-2 flex">
-                    <img src={SearchIcon} alt="search" className="w-4 h-4 mt-2 " />
+                    <img src='./src/assets/search-normal.png' alt="search" className="w-4 h-4 mt-2 " />
                   </span>
                   <input
                     className="w-full p-1 pl-7 pr-5 border text-[#001F54] rounded-full focus:outline-none focus:border-blue-500"
@@ -30,7 +27,7 @@ function NavbarReader() {
                     aria-label="Search"
                   />
                
-                <img src={ProfileIcon} alt="Profile Icon" className="h-8 w-auto mt-1 ml-10" />
+                <img src='./src/assets/profile.png' alt="Profile Icon" className="h-8 w-auto mt-1 ml-10" />
                 </form>
               </div>
             </div>
