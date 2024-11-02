@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarReader from '/src/components/common/NavbarReader';
+import FooterReader from '/src/components/common/FooterReader';
 import Frame340 from '../assets/Frame 340.png';
 import Frame338 from '../assets/Frame 338.png';
 import Frame339 from '../assets/Frame 339.png';
@@ -46,7 +47,7 @@ function ReaderDashboard() {
             </div>
           ))}
         </div>
-        <div className="flex flex-col-reverse mt-4 md:flex-row items-center justify-between max-w-7xl mx-auto">
+        <div className="flex flex-col-reverse mb-5 mt-4 md:flex-row items-center justify-between max-w-7xl mx-auto">
           <div className="md:w-100">
             <img src={Rectangle28} alt="Subscription Image" className="w-full ml-3 md:h-96 object-cover mx-auto" />
           </div>
@@ -61,9 +62,7 @@ function ReaderDashboard() {
             </div>
           </div>
         </div>
-        <footer className="bg-[#FFFFFF] text-[#001F54] font-inter font-medium text-sm md:text-lg lg:text-xl p-2 md:p-4 text-center whitespace-nowrap">
-          <p>Copyright &copy; Mentorship For Acceleration 2024. All Rights Reserved</p>
-        </footer>
+        <FooterReader/>
       </div>
     </div>
   );
