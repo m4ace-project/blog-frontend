@@ -14,16 +14,12 @@ function ReaderDashboard() {
     <div className="bg-[#FFFCD8] min-h-screen">
       <NavbarReader />
       <div className="max-w-8xl mx-auto px-4 py-8">
-       
-        {/* Featured Article */}
         <div className="mb-6">
           <img src={Frame340} alt="Featured" className="w-full rounded-lg" />
           <h2 className="text-xl md:text-2xl font-bold mt-2">
             Vegan Parenting Tips: Raising Children on a Plant-Based Diet
           </h2>
         </div>
-
-        {/* Main Articles Section */}
         <div className="flex gap-2 mb-6">
           <div className="relative w-1/2 overflow-hidden rounded-lg">
             <img src={Frame338} alt="Article 1" className="w-full h-full object-cover" />
@@ -33,8 +29,6 @@ function ReaderDashboard() {
             <img src={Frame339} alt="Article 2" className="w-full h-full object-cover" />
           </div>
         </div>
-
-        {/* Top Posts Section */}
         <h3 className="text-lg md:text-xl font-bold mb-4">Top Posts</h3>
         <div className="flex flex-wrap -mx-1">
           {[Rectangle24, Rectangle25, Govnor, Rectangle27].map((image, index) => (
@@ -52,8 +46,6 @@ function ReaderDashboard() {
             </div>
           ))}
         </div>
-
-        {/* Subscription Section */}
         <div className="flex flex-col-reverse mt-4 md:flex-row items-center justify-between max-w-7xl mx-auto">
           <div className="md:w-100">
             <img src={Rectangle28} alt="Subscription Image" className="w-full ml-3 md:h-96 object-cover mx-auto" />
@@ -69,8 +61,6 @@ function ReaderDashboard() {
             </div>
           </div>
         </div>
-
-        {/* Footer Section */}
         <footer className="bg-[#FFFFFF] text-[#001F54] font-inter font-medium text-sm md:text-lg lg:text-xl p-2 md:p-4 text-center whitespace-nowrap">
           <p>Copyright &copy; Mentorship For Acceleration 2024. All Rights Reserved</p>
         </footer>
