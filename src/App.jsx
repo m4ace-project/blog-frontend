@@ -5,6 +5,11 @@ import Verify from './pages/Verify';
 import Facebook from './pages/Facebook';
 import Welcome from './pages/Welcome';
 import CreatePost from './pages/CreatePost';
+import ReadPost from './pages/ReadPost';
+import AboutYou from './pages/AboutYou';
+import RecentArticles from './pages/RecentArticles';
+import Users from './pages/Users';
+import ManagePost from './pages/ManagePost';
 import Confirm from './pages/Confirm';
 import Account from './pages/Account';
 import Check from './pages/Check';
@@ -38,7 +43,12 @@ function App() {
         <Route path="/verify" element={ <Verify /> } />
         <Route path="/facebook" element={ <Facebook /> } /> 
         <Route path="/google" element={ <Google /> } /> 
-        <Route path="/createpost" element={ <CreatePost /> } /> 
+        <Route path="/createpost" element={ <CreatePost /> } />
+        <Route path="/readpost" element={ <ReadPost /> } />
+        <Route path="/aboutyou" element={ <AboutYou /> } />
+        <Route path="/recentarticles" element={ <RecentArticles /> } />
+        <Route path="/users" element={ <Users /> } />
+        <Route path="/managepost" element={ <ManagePost /> } />
         <Route path="/confirm" element={ <Confirm /> } /> 
         <Route path="/" element={ <Welcome /> } />
         <Route path="/account" element={ <Account /> } />
