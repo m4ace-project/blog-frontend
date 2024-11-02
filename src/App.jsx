@@ -28,6 +28,7 @@ import Signup from './pages/Signup';
 import Inbox from './pages/Inbox';
 import ProfileInfo from './pages/ProfileInfo';
 import Chat from './pages/Chat';
+import ReaderDashboard from './pages/Readerdashboard';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -69,6 +70,7 @@ function App() {
         <Route path="/inbox" element={ <Inbox/> } />
         <Route path="/profileInfo" element={ <ProfileInfo/> } />
         <Route path="/chat" element={ <Chat/> } />
+        <Route path="/readerdashboard" element={ <ReaderDashboard/> } />
       </Routes>
 
      

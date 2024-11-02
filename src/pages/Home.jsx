@@ -7,6 +7,8 @@ import Frame85 from '../assets/Frame 85.png';
 import Frame86 from '../assets/Frame 86.png'; 
 import Frame87 from '../assets/Frame 87.png';
 import OrangeBackground from '../assets/orange.jpeg';
+import SearchIcon from '../assets/search-normal.png';
+
 const Home = () => {
   return (
     <div>
@@ -20,12 +22,12 @@ const Home = () => {
                 {['Services', 'Articles', 'Pricing', 'Resources', 'Contact Us'].map((item, index) => (
                   <a key={index} href="#" className="text-[#001F54] font-inter font-medium flex hover:text-orange-500">
                     {item}
-                    <img src={Vector} alt="vector" className="h-2 w-2 ml-3 mt-2 hover:text-orange-500" />
+                    <img src={Vector} alt="vector" className="h-2 w-2 ml-3 mt-2 hover: text-[#FF5722]" />
                   </a>
                 ))}
                 <form className="relative w-40" role="search">
                   <span className="absolute inset-y-0 left-2 flex items-center">
-                    <i className="fas fa-magnifying-glass"></i>
+                    <img src={SearchIcon} alt="search" className='w-4  h-4' />
                   </span>
                   <input
                     className="w-full p-1 pl-7 pr-5 border text-[#001F54] rounded-full focus:outline-none focus:border-blue-500"
