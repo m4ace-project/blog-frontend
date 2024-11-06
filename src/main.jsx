@@ -6,14 +6,9 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<<<<<<< HEAD
-    
-       <App />
-=======
      <BrowserRouter>
          <App />
       </BrowserRouter>
->>>>>>> 35fa432 (Added Inbox, ProfileInfo, and Chat Pages)
        
   </StrictMode>,
 )

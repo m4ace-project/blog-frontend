@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 function NavbarReader() {
@@ -26,8 +27,10 @@ function NavbarReader() {
                     placeholder="Search"
                     aria-label="Search"
                   />
-               
+                   <Link 
+                   to="/profileinfo" >
                 <img src='./src/assets/profile.png' alt="Profile Icon" className="h-8 w-auto mt-1 ml-10" />
+                </Link>
                 </form>
               </div>
             </div>

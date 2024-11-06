@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Frame199 from '../assets/Frame 199.png';
 import GoogleIcon from '../assets/google.png';
 import FacebookIcon from '../assets/facebook.png';
@@ -33,21 +34,29 @@ function SignUp() {
                         </label>
                         <input type="checkbox" id="terms" className="ml-10" />
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] py-3 rounded-full font-semibold font-inter text-lg">
+                    <div className=" ">
+                    <Link 
+                         to="/inbox" 
+                    
+                        className="w-full inline-block py-3 text-center bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] rounded-full font-semibold font-inter text-lg">
                         Continue
-                    </button>
+                        </Link>
+                    
+                    </div>
                     <div className="flex items-center justify-center mt-4 space-x-4 text-[#001F54]">
                         <div className="text-center text-sm md:text-base font-medium">Sign up with</div>
 
                         <div className="flex space-x-1">
-                            <button type="button" className="w-10 h-10 flex items-center justify-center rounded-full">
-                                <img src={GoogleIcon} alt="Google" className="h-6 w-6" />
-                            </button>
-                            <button type="button" className="w-10 h-10 flex items-center justify-center rounded-full">
+                        <Link 
+                         to="/google" 
+                     className="w-10 h-10 flex items-center justify-center rounded-full">
+                        <img src={GoogleIcon} alt="Google" className="h-6 w-6" />
+                                </Link>
+                            <Link 
+                                to="/facebook" 
+                               className="w-10 h-10 flex items-center justify-center rounded-full">
                                 <img src={FacebookIcon} alt="Facebook" className="h-6 w-6" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </form>

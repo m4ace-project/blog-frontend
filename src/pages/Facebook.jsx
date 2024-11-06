@@ -8,11 +8,7 @@ function Facebook() {
 
             <div className='inline-flex bg-[#3B5998] text-white p-[20px] w-[100%]'>
             
-<<<<<<< HEAD
-                <h3 className='md:text-6xl text-3xl pl-14 pr-5'>facebook</h3>
-=======
                 <h3 className='md:text-6xl font-bold text-3xl pl-14 pr-5'>facebook</h3>
->>>>>>> 35fa432 (Added Inbox, ProfileInfo, and Chat Pages)
                 <div className='md:pt-4 pt-1'>
                     <CreateAccount />
                 </div>

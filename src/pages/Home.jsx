@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Frame198 from '../assets/Frame 198.png';
 import Vector from '../assets/Vector.png';
 import Frame6 from '../assets/Frame 6.png';
@@ -36,11 +37,11 @@ const Home = () => {
                     aria-label="Search"
                   />
                 </form>
-                <button className=" bg-[#FF5722] text-[#FFFFFF] rounded-md font-inter font-medium text-sm w-40 px-6 py-2 mr-3">
-                  Get Started
+                <button  className=" bg-[#FF5722] text-[#FFFFFF] rounded-md font-inter font-medium text-sm w-40 px-6 py-2 mr-3">
+                <Link to="/Signin" className="text-[#FFFFFF]">   Get Started </Link>
                 </button>
                 <button className="bg-[#FF5722] text-[#FFFFFF] rounded-md font-inter font-medium text-sm w-40 px-6 py-2">
-                  Log in
+               <Link to="/Welcome" className="text-[#FFFFFF]">Log in</Link>
                 </button>
               </div>
             </div>
@@ -62,10 +63,11 @@ const Home = () => {
             <p className="text-[#001F54] font-inter font-semibold mt-4 text-lg md:text-2xl">Create. Share. Inspire. Connect</p>
             <div className="mt-6 flex place-content-center">
               <button className="bg-[#FF5722] text-[#FFFFFF] rounded-md font-inter font-medium text-md w-32 md:w-40 px-4 py-2 mr-3">
-                Read
+              <Link to="/Readerdashboard" className="text-[#FFFFFF]">
+              Read</Link>
               </button>
               <button className="bg-[#FF5722] hover:bg-orange-600 text-[#FFFFFF] rounded-md font-inter font-medium text-md w-32 md:w-40 px-4 py-2 ml-3">
-                Create
+              <Link to="/Welcome" className="text-[#FFFFFF]">Create</Link> 
               </button>
             </div>
           </div>
