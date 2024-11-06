@@ -28,6 +28,7 @@ import Signup from './pages/Signup';
 import Inbox from './pages/Inbox';
 import ProfileInfo from './pages/ProfileInfo';
 import Chat from './pages/Chat';
+import ReaderDashboard from './pages/Readerdashboard';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -36,34 +37,35 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/verify" element={<Verify />} />
-        <Route path="/facebook" element={<Facebook />} />
-        <Route path="/google" element={<Google />} />
-        <Route path="/createpost" element={<CreatePost />} />
-        <Route path="/confirm" element={<Confirm />} />
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/check" element={<Check />} />
-        <Route path="/whatsapp" element={<Whatsapp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/find" element={<Find />} />
-        <Route path="/travel" element={<Travel />} />
-        <Route path="/games" element={<Games />} />
-        <Route path="/food" element={<Food />} />
-        <Route path="/fitness" element={<Fitness />} />
-        <Route path="/tech" element={<Tech />} />
-        <Route path="/homediy" element={<HomeDiy />} />
-        <Route path="/personalization" element={<Personalization />} />
-        <Route path="/personalfinance" element={<Personalfinance />} />
-        <Route path="/parenting" element={<Parenting />} />
-        <Route path="/arts" element={<Arts />} />
-        <Route path="/fashion" element={<Fashion />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/inbox" element={<Inbox />} />
-        <Route path="/profileInfo" element={<ProfileInfo />} />
-        <Route path="/chat" element={<Chat />} />
+      <Route path="/" element={ <Home /> } />
+        <Route path="/verify" element={ <Verify /> } />
+        <Route path="/facebook" element={ <Facebook /> } /> 
+        <Route path="/google" element={ <Google /> } /> 
+        <Route path="/createpost" element={ <CreatePost /> } /> 
+        <Route path="/confirm" element={ <Confirm /> } /> 
+        <Route path="/welcome" element={ <Welcome /> } />
+        <Route path="/account" element={ <Account /> } />
+        <Route path="/check" element={ <Check /> } />
+        <Route path="/whatsapp" element={ <Whatsapp /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path="/find" element={ <Find /> } />
+        <Route path="/travel" element={ <Travel /> } />
+        <Route path="/games" element={ <Games /> } />
+        <Route path="/food" element={ <Food /> } />
+        <Route path="/fitness" element={ <Fitness /> } />
+        <Route path="/tech" element={ <Tech /> } />
+        <Route path="/homediy" element={ <HomeDiy /> } />
+        <Route path="/personalization" element={ <Personalization /> } />
+        <Route path="/personalfinance" element={ <Personalfinance /> } />
+        <Route path="/parenting" element={ <Parenting /> } />
+        <Route path="/arts" element={ <Arts /> } />
+        <Route path="/fashion" element={ <Fashion /> } />
+        <Route path="/signin" element={ <Signin/> } />
+        <Route path="/signup" element={ <Signup/> } />
+        <Route path="/inbox" element={ <Inbox/> } />
+        <Route path="/profileInfo" element={ <ProfileInfo/> } />
+        <Route path="/chat" element={ <Chat/> } />
+        <Route path="/readerdashboard" element={ <ReaderDashboard/> } />
       </Routes>
     </>
   );
