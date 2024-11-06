@@ -5,11 +5,14 @@ import Verify from './pages/Verify';
 import Facebook from './pages/Facebook';
 import Welcome from './pages/Welcome';
 import CreatePost from './pages/CreatePost';
+<<<<<<< HEAD
 import ReadPost from './pages/ReadPost';
 import AboutYou from './pages/AboutYou';
 import RecentArticles from './pages/RecentArticles';
 import Users from './pages/Users';
 import ManagePost from './pages/ManagePost';
+=======
+>>>>>>> 01d7e4380f0cdcfa1095c412ab4e1a696ccfb80b
 import Confirm from './pages/Confirm';
 import Account from './pages/Account';
 import Check from './pages/Check';
@@ -27,6 +30,8 @@ import Arts from './pages/Arts';
 import Food from './pages/Food';
 import Games from './pages/Games';
 import Fitness from './pages/Fitness';
+<<<<<<< HEAD
+=======
 import Home from './pages/Home';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
@@ -35,6 +40,7 @@ import ProfileInfo from './pages/ProfileInfo';
 import Chat from './pages/Chat';
 import ReaderDashboard from './pages/Readerdashboard';
 import ReadersDashboard2 from './pages/ReadersDashboard2';
+>>>>>>> 01d7e4380f0cdcfa1095c412ab4e1a696ccfb80b
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -48,6 +54,7 @@ function App() {
   return (
     <>
       <Routes>
+<<<<<<< HEAD
         <Route path="/verify" element={ <Verify /> } />
         <Route path="/facebook" element={ <Facebook /> } /> 
         <Route path="/google" element={ <Google /> } /> 
@@ -58,8 +65,16 @@ function App() {
         <Route path="/users" element={ <Users /> } />
         <Route path="/managepost" element={ <ManagePost /> } />
         <Route path="/confirm" element={ <Confirm /> } /> 
+        <Route path="/" element={ <Welcome /> } />
+=======
+      <Route path="/" element={ <Home /> } />
+        <Route path="/verify" element={ <Verify /> } />
+        <Route path="/facebook" element={ <Facebook /> } /> 
+        <Route path="/google" element={ <Google /> } /> 
+        <Route path="/createpost" element={ <CreatePost /> } /> 
+        <Route path="/confirm" element={ <Confirm /> } /> 
         <Route path="/welcome" element={ <Welcome /> } />
-        <Route path="/" element={ <Home /> } />
+>>>>>>> 01d7e4380f0cdcfa1095c412ab4e1a696ccfb80b
         <Route path="/account" element={ <Account /> } />
         <Route path="/check" element={ <Check /> } />
         <Route path="/whatsapp" element={ <Whatsapp /> } />
@@ -76,6 +91,8 @@ function App() {
         <Route path="/parenting" element={ <Parenting /> } />
         <Route path="/arts" element={ <Arts /> } />
         <Route path="/fashion" element={ <Fashion /> } />
+<<<<<<< HEAD
+=======
         <Route path="/signin" element={ <Signin/> } />
         <Route path="/signup" element={ <Signup/> } />
         <Route path="/inbox" element={ <Inbox/> } />
@@ -83,6 +100,7 @@ function App() {
         <Route path="/chat" element={ <Chat/> } />
         <Route path="/readerdashboard" element={ <ReaderDashboard/> } />
         <Route path="/readersdashboard2" element={ <ReadersDashboard2/> } />
+>>>>>>> 01d7e4380f0cdcfa1095c412ab4e1a696ccfb80b
       </Routes>
 
      
