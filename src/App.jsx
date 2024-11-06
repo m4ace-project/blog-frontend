@@ -37,12 +37,12 @@ function App() {
   return (
     <>
       <Routes>
-      <Route path="/" element={ <Home /> } />
+        <Route path="/" element={ <Home /> } />
         <Route path="/verify" element={ <Verify /> } />
-        <Route path="/facebook" element={ <Facebook /> } /> 
-        <Route path="/google" element={ <Google /> } /> 
-        <Route path="/createpost" element={ <CreatePost /> } /> 
-        <Route path="/confirm" element={ <Confirm /> } /> 
+        <Route path="/facebook" element={ <Facebook /> } />
+        <Route path="/google" element={ <Google /> } />
+        <Route path="/createpost" element={ <CreatePost /> } />
+        <Route path="/confirm" element={ <Confirm /> } />
         <Route path="/welcome" element={ <Welcome /> } />
         <Route path="/account" element={ <Account /> } />
         <Route path="/check" element={ <Check /> } />
