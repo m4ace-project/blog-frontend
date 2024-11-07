@@ -22,7 +22,7 @@ function Login() {
       <p className="ml-5">forgot password?</p>
     </div>
     <div className='flex  justify-center items-center  '>
-    <Link  to={'./personalization'} className="w-[20vw] font-bold bg-[#FF5722] flex justify-center items-center  rounded-full mt-5 text-white px-20 py-1 text-sm">Continue</Link>
+    <Link  to={'/personalization'} className="w-[20vw] font-bold bg-[#FF5722] flex justify-center items-center  rounded-full mt-5 text-white px-20 py-1 text-sm">Continue</Link>
     </div>
   </div> 
     </div>

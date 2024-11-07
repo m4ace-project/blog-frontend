@@ -23,7 +23,7 @@ function Account() {
     </div>
     </div>
     <footer>
-        <div className="text-xs flex mt-10 lg:justify-center ">
+        <div className=" hidden text-xs md:flex mt-10 lg:justify-center ">
             <p className="ml-7 md:ml-24 lg:-ml-2">English (United States)</p>
           <div className="ml-[16em] md:ml-[35em] lg:ml-[55em] flex space-x-5">
             <p >Help</p>
