@@ -1,9 +1,13 @@
 import React from 'react'
+import Widget from '../components/common/Widget';
 
 function RecentArticles() {
   return (
-    <div className='bg-[#FFFCD8] h-[100vh]'>
-      <div>
+    <div className='bg-[#FFFCD8] h-[100vh] flex'>
+      <div className='md:w-[20%]'>
+        <Widget />
+      </div>
+      <div className='md:w-[80%]'>
         <header className='bg-white w-full h-[5rem] py-4 px-14 flex justify-between'>
             <p className='text-2xl'>Welcome Admin,</p>
             <img src="./src/assets/profile.svg" className='w-7' alt="" />
