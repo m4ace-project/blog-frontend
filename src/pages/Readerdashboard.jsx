@@ -67,11 +67,11 @@ function ReaderDashboard() {
               </button>
             </div>
             </div>
-            <div className="">
-            <Link 
-            to="/chat" >
-            <img src={MessageIcon} alt="messageicon"/> </Link>
-            </div>
+            <div className="flex justify-end w-full">
+           <Link to="/chat">
+           <img src={MessageIcon} alt="messageicon" />
+           </Link>
+           </div>
           </div>
         </div>
         <FooterReader/>
