@@ -11,7 +11,7 @@ function Welcome() {
         
             <div className='grid w-[300px] mx-auto mb-6'>
             
-                <button className='border border-black h-10 rounded-full font-bold'>Continue with Email</button>
+                 <Link to={'/login'} className='flex justify-center items-center mt-7 border border-black h-10 rounded-full font-bold'>Continue with Email</Link>
                 <Link to={'/google'} className='flex justify-center items-center my-7 border border-black h-10 rounded-full font-bold'>Continue with Google</Link>
                 <Link to={'/facebook'} className='flex justify-center items-center border border-black h-10 rounded-full font-bold'>Continue with Facebook</Link>
   
@@ -20,7 +20,7 @@ function Welcome() {
             <div className='flex place-content-center'>
             
                 <p>Don't have an account?</p>
-                <p className='font-bold ps-5'>Sign up</p>
+                <Link to={'/signup'}><p className='font-bold ps-5'>Sign up</p></Link>
             
             </div>
 

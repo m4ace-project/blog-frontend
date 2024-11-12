@@ -1,6 +1,7 @@
 import React from 'react'
 import Widget from '../components/common/Widget';
 import PostHeader from '../components/pages/post/PostHeader';
+import { Link } from 'react-router-dom';
 
 function CreatePost() {
   return (
@@ -24,10 +25,12 @@ function CreatePost() {
             <div>
             <h5 className='text-[#001F54] text-xl font-bold text-center mb-10 lg:mb-4'>Recent Posts</h5>
             <div className='md:w-[100%] md:flex md:justify-between md:gap-5 ml-5 '>
+            <Link to={'/readpost'}>
               <div className='sm:w-[50%] md:w-[45%] mb-14 mx-auto lg:w-[50%]'>
                 <img src="./src/assets/Rectangle 345.svg" className='lg:h-[60%]' alt="" />
                 <p className='my-3 text-[#001F54] font-bold'>How to Style Long Shorts for Work this Summer</p>
               </div>
+              </Link>
               <div className='sm:w-[50%] md:w-[45%] mx-auto lg:w-[50%]'>
                 <img src="./src/assets/Rectangle 346.svg" className='lg:h-[50%]' alt="" />
                 <p className='my-3 text-[#001F54] font-bold'>Naira Depreciates to N1,595$ in Parallel Market</p>
