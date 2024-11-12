@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Find() {
   return (
@@ -16,9 +17,9 @@ function Find() {
              md:ml-28 lg:ml-[17em] lg:mr-28 border-b-[1.5px] border-x-2 shadow-md lg:px-10
             border-b-gray-400 px-2 py-2  w-[20em] md:w-[25em]"  type="email" placeholder="Email address or phone number" />
         </div>
-        <div className="md:flex text-sm  md:pt-16 "><button className=" block mx-auto mt-10 md:ml-[28em]
+        <div className="md:flex text-sm  md:pt-16 "><Link to={'/login'} className=" block mx-auto mt-10 md:ml-[28em]
              md:-mr-20 lg:ml-[40em] bg-[#FF5722]
-            text-white md:mt-8 px-12 py-1 rounded-md">Cancel</button>
+            text-white md:mt-8 px-12 py-1 rounded-md">Cancel</Link>
             <button className=" block mx-auto mt-10 md:ml-24 bg-[#FF5722]
             text-white md:mt-8  px-12 py-1  rounded-md">Search</button>
         </div>
