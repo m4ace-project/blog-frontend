@@ -4,7 +4,7 @@ import PostHeader from '../components/pages/post/PostHeader';
 
 function ReadPost() {
   return (
-    <div className='bg-[#FFFCD8] h-[100vh] md:flex overflow-scroll'>
+    <div className='bg-[#FFFCD8] h-[100vh] md:flex overflow-y-scroll'>
       <div className='md:w-[20%]'>
           <Widget />
       </div>

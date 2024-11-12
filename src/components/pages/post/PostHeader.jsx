@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function PostHeader() {
   return (
@@ -15,7 +16,7 @@ function PostHeader() {
         <div className='hidden md:flex md:w-8 md:gap-3 md:ml-10'>
           <img src="./src/assets/notification.svg" alt="" />
           <img src="./src/assets/setting.svg" alt="" />
-          <img src="./src/assets/profile.svg" alt="" />
+          <Link to={'/aboutyou'}><img src="./src/assets/profile.svg" alt=""/></Link>
         </div>
         <div className="md:hidden flex items-center justify-between">
           <img src="./src/assets/Logo.svg" className='w-[3rem]' alt="" />

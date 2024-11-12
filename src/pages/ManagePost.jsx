@@ -1,11 +1,11 @@
 import React from 'react'
-import Widget from '../components/common/Widget';
+import Widget2 from '../components/common/Widget2';
 
 function ManagePost() {
   return (
-    <div className='bg-[#FFFCD8] h-[100vh] flex'>
+    <div className='bg-[#FFFCD8] h-[100vh] overflow-auto flex'>
       <div className='md:w-[20%]'>
-        <Widget />
+        <Widget2 />
       </div>
       <div className='md:w-[80%]'>
             <header className='bg-white w-full h-[6rem] py-5 px-14 mb-10 flex justify-between'>
@@ -13,7 +13,7 @@ function ManagePost() {
                 <img src="./src/assets/profile.svg" className='w-14' alt="" />
             </header>
 
-            <div className='bg-white px-14 mx-14 rounded-[2rem]'>
+            <div className='bg-white min-w-full overflow-x-auto px-5 md:px-14 mx-5 md:mx-14 rounded-[2rem]'>
                 <div className='flex justify-between py-5 mb-8 border-b-2 border-b-black'>
                     <button className='bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl'>Manage Posts</button>
                     <button className='bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl'>View all</button>
