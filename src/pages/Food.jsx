@@ -1,4 +1,10 @@
 import React from 'react'
+import Navbar from '../components/common/Navbar'
+import Checkbox from '../components/pages/Checkbox'
+import Suggest from '../components/common/Suggest'
+import Subscribe from '../components/common/Subscribe'
+import Footer from '../components/common/Footer'
+
 
 function Food() {
   return (
