@@ -3,17 +3,20 @@ import Frame199 from '../assets/Frame 199.png';
 import GoogleIcon from '../assets/google.png';
 import FacebookIcon from '../assets/facebook.png';
 import {baseUrl} from '../utils/url'
-
+import axios from 'axios';
 function SignUp() {
     const [data, setData] = useState([])
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [cursor, setCursor] = useState(true)
+    const [showAlert, setShowAlert] = useState(false)
+    const [alert, setAlert] = useState('')
     const url = `${baseUrl}/register`
 
     if (email != '' && password != ''){
         () => setCursor(false)
     }
+
     const handleSubmit = (e)=>{
         e.preventDefault()
         const details =  {
@@ -22,22 +25,49 @@ function SignUp() {
             password2: password,
             role: "reader"
         }
-        fetch(url, {
-            method: "post",
-            headers: {"Content-Type": "application/json"},
-            body: details,
-        }).then((res)=>{
-            let response =  res.json()
-            console.log(response)
-        })
+
+        axios.post(url,
+            {
+                email: email,
+                password: password,
+                password2: password,
+                role: "reader"
+            })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        // fetch(url, {
+        //     method: "POST",
+           
+        // }).then((res)=>{
+        //     let response =  res.json()
+        //     return response
+        // }).then((response)=>{
+        //     setShowAlert(true)
+        //     setAlert(response.detail)
+        //     console.log(response)  
         
-        console.log(email, password);
+        // }          
+        // )
         
     }
+
+    useEffect(()=>{
+        setTimeout(() => {
+            setShowAlert(false)
+        }, 6000);
+    }, [showAlert])
     return (
         <div className="bg-[#FFFCD8] min-h-screen">
               <img src={Frame199} alt="logo" className="h-12 w-auto pt-2 ml-3" />
             <div className="w-full max-w-md mx-auto p-6 rounded-md mt-7 items-center justify-center">
+                {
+                    showAlert && <h1 className='left-1 bg-red-400 p-2 text-white'>{alert}</h1>
+                }
               <h1 className="text-4xl font-semibold font-inter text-center text-[#001F54] mb-6">Sign Up</h1>
                 <form className="space-y-4">
                     <div className="flex flex-col">
