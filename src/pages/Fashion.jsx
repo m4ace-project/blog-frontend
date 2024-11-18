@@ -17,17 +17,12 @@ function Fashion() {
         <Suggest/>
         </div>
         <p className='text-center font-bold mt-3 text-xs md:text-base'>Fashion and Beauty</p>
-        <div className='flex text-[#001F54] justify-center items-center mt-5'>
-          <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Anna Wintour</li>
-            <li className='mt-3 '>Chiara Ferragni</li>
-            <li className='mt-3 '>Zoella (Zoe Sugg)</li>
-            <li className='mt-3 '>Pat McGrath</li>
-            <li className='mt-3 '>Huda Kattan</li>
-          </ul>
-          <div className='ml-[20%] ' >
-            <Checkbox/>
-          </div>
+        <div className='flex flex-col text-[#001F54] justify-center items-center mt-5'>
+            <Checkbox text={'Anna Wintour'} id={'ana'}/>
+            <Checkbox text={'Chiara Ferragni'} id={'gladys'}/>
+            <Checkbox text={'Zoella (Zoe Sugg)'} id={'hh'}/>
+            <Checkbox text={'Pat McGrath'} id={'pat'}/>
+            <Checkbox text={'Huda Kattan'} id={'huda'}/>
         </div>
         <Subscribe/>
       </div>

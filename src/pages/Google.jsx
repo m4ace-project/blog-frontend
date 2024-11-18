@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Footer2 from '../components/common/Footer2'
 
 function Google() {
@@ -24,6 +25,7 @@ function Google() {
                     
                     <div className='md:w-[50%] md:pt-0 pt-10'>
                         <div>
+                            <Link to={'/verify'}>
                             <div className='inline-flex  border-black border-b pb-2 w-[100%]'>
                                 <h1 className='bg-[#001F54] rounded-full ps-[15px] pt-[4px] w-[50px] h-[50px] text-white text-4xl  mr-5'>O</h1>
                                 <div>
@@ -31,11 +33,13 @@ function Google() {
                                         <p>omololaadesanya@gmail.com</p>
                                 </div>
                             </div>
-    
+                            </Link>
+                            <Link to={'/account'}>
                             <div className='inline-flex  border-black border-b w-[100%] mb-4'>
                                 <img src="./src/assets/dp.png" alt=""/>
                                 <h3 className='text-xl ms-7 pt-5'>Use another account</h3>    
                             </div>
+                            </Link>
                             <p className='pe-5 mb-5'>Before using this app, you can review M4Ace.com’s
                             privacy policy and terms of service.</p>
                         </div>
