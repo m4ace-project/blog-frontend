@@ -1,11 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import NavbarReader from '/src/components/common/NavbarReader';
 import FooterReader from '/src/components/common/FooterReader';
-=======
-import NavbarReader from '/src/components/common/NavbarReader';
->>>>>>> 8160ff821976a8e7fdae9101255d5e63b6a8a7fa
 import Frame340 from '../assets/Frame 340.png';
 import Frame338 from '../assets/Frame 338.png';
 import Frame339 from '../assets/Frame 339.png';

@@ -1,13 +1,8 @@
 import React from 'react'
-<<<<<<< HEAD
-import Navbar from '../components/common/Navbar'
-import Footer from '../components/common/Footer'
-=======
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer'
 import { Link } from 'react-router-dom'
 
->>>>>>> 8160ff821976a8e7fdae9101255d5e63b6a8a7fa
 
 function Personalization() {
   return (
