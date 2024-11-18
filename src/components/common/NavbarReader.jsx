@@ -41,6 +41,7 @@ function NavbarReader() {
                 </svg>
               </button>
             </div>
+            
           </div>
         </div>
       </nav>
