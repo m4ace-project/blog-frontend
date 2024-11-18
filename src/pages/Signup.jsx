@@ -95,25 +95,31 @@ function SignUp() {
                         <label htmlFor="terms" className="mr-10 ml-7">
                             I agree to terms and condition
                         </label>
-                        <input type="checkbox" id="terms"  className="ml-10" />
+                        <input type="checkbox" id="terms" className="ml-10" />
                     </div>
-                    <button
-                        type="submit"
-                        onClick={handleSubmit}
-                        disabled={!email && !password} 
-                        className="disabled:cursor-not-allowed w-full bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] py-3 rounded-full font-semibold font-inter text-lg">
+                    <div className=" ">
+                    <Link 
+                         to="/inbox" 
+                    
+                        className="w-full inline-block py-3 text-center bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] rounded-full font-semibold font-inter text-lg">
                         Continue
-                    </button>
+                        </Link>
+                    
+                    </div>
                     <div className="flex items-center justify-center mt-4 space-x-4 text-[#001F54]">
                         <div className="text-center text-sm md:text-base font-medium">Sign up with</div>
 
                         <div className="flex space-x-1">
-                            <button type="button" className="w-10 h-10 flex items-center justify-center rounded-full">
-                                <img src={GoogleIcon} alt="Google" className="h-6 w-6" />
-                            </button>
-                            <button type="button" className="w-10 h-10 flex items-center justify-center rounded-full">
+                        <Link 
+                         to="/google" 
+                     className="w-10 h-10 flex items-center justify-center rounded-full">
+                        <img src={GoogleIcon} alt="Google" className="h-6 w-6" />
+                                </Link>
+                            <Link 
+                                to="/facebook" 
+                               className="w-10 h-10 flex items-center justify-center rounded-full">
                                 <img src={FacebookIcon} alt="Facebook" className="h-6 w-6" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </form>

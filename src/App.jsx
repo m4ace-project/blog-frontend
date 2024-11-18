@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 import Google from './pages/Google';
 import Verify from './pages/Verify';
 import Facebook from './pages/Facebook';
@@ -35,15 +35,11 @@ import ProfileInfo from './pages/ProfileInfo';
 import Chat from './pages/Chat';
 import ReaderDashboard from './pages/Readerdashboard';
 import ReadersDashboard2 from './pages/ReadersDashboard2';
+import Admin from './pages/Admin';
 import { Routes, Route } from 'react-router-dom';
 
-
-
- 
-
-
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -83,12 +79,10 @@ function App() {
         <Route path="/chat" element={ <Chat/> } />
         <Route path="/readerdashboard" element={ <ReaderDashboard/> } />
         <Route path="/readersdashboard2" element={ <ReadersDashboard2/> } />
+        <Route path="/admin" element={ <Admin/> } />
       </Routes>
-
-     
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;
