@@ -21,7 +21,7 @@ const Home = () => {
           <div className="max-w-7xl mx-auto px-2">
             <div className="flex items-center justify-between flex-wrap">
               <div className="flex items-center">
-                <img src={Frame198} alt="logo" className="h-12 w-auto sm:absolute " />
+                <img src={Frame198} alt="logo" className="h-12 w-auto " />
               </div>
               <div className="sm:hidden ">
                 <button

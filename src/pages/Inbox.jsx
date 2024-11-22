@@ -3,28 +3,50 @@ import Frame199 from '../assets/Frame 199.png';
 import MailIcon from '../assets/mail.png';
 
 function Inbox() {
-    const [otp, setOtp] = useState(new Array(4).fill(""));
+    const [otp, setOtp]  = useState("6776".split(""));
+    const [loading, setLoading] = useState(false);
+
     const handleChange = (e, index) => {
         const value = e.target.value;
         if (/^[0-9]$/.test(value) || value === "") {
             const newOtp = [...otp];
             newOtp[index] = value;
             setOtp(newOtp);
+            if (value !== "" && index < otp.length - 1) {
+                const nextInput = document.getElementById(`otp-${index + 1}`);
+                if (nextInput) nextInput.focus();
+            }
         }
     };
 
     const verifyEmail = async () => {
+        if (otp.some((digit) => digit === "") || otp.length !== 4) {
+            alert("Please enter a valid 4-digit OTP.");
+            return;
+        }
+        setLoading(true);
         try {
-            const response = await fetch('https://m4aceblog.onrender.com/api/verify-email/', {
+            const response = await fetch('https://olaniyi.pythonanywhere.com/api/verify-email/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json', 
+                },
                 body: JSON.stringify({ otp: otp.join("") }) 
             });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                alert(errorData.message || "Verification failed. Please try again.");
+                return;
+            }
+
             const data = await response.json();
-            return data;
+            alert("Email verification successful!");
         } catch (error) {
             console.error('Verification error:', error);
-            return error;
+            alert("An error occurred during verification.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -41,11 +63,12 @@ function Inbox() {
                     {otp.map((digit, index) => (
                         <input
                             key={index}
+                            id={`otp-${index}`}
                             type="text"
                             maxLength="1"
                             value={digit}
                             onChange={(e) => handleChange(e, index)}
-                            className="w-10 h-12 text-center text-xl  text-[#FFFFFF] bg-[#FF5722]  "
+                            className="w-10 h-12 text-center text-xl text-[#FFFFFF] bg-[#FF5722]"
                         />
                     ))}
                 </div>
@@ -53,9 +76,12 @@ function Inbox() {
                 <p className="text-[#000000] font-regular test-lg">Wrong e-mail</p>
                 
                 <button
-                    className="bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] text-sm mt-2 py-3 px-12 rounded-[10px] font-inter font-semibold"
-                    onClick={verifyEmail}>
-                    Change
+                    className={`bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] text-sm mt-2 py-3 px-12 rounded-[10px] font-inter font-semibold ${
+                        loading ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
+                    onClick={verifyEmail}
+                    disabled={loading}>
+                    {loading ? "Loading..." : "Change"}
                 </button>
             </div>
         </div>
