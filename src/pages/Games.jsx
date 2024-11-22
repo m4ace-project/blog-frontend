@@ -18,18 +18,13 @@ function Games() {
         <Suggest/>
         </div>
         <p className='text-center font-bold mt-3 text-xs md:text-base'>Gaming and Esports</p>
-        <div className='flex text-[#001F54] justify-center items-center mt-5'>
-          <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >PewDiePie</li>
-            <li className='mt-3 '>Ninja</li>
-            <li className='mt-3 '>Shroud</li>
-            <li className='mt-3 '>Pokimane</li>
-            <li className='mt-3 '>Dr Disrespect</li>
-          </ul>
-          <div className='ml-[20%] ' >
-            <Checkbox/>
+          <div className='flex flex-col text-[#001F54] justify-center items-center mt-5' >
+          <Checkbox text={'PewDiePie'} id={'ana'}/>
+            <Checkbox text={'Ninja'} id={'gladys'}/>
+            <Checkbox text={'Shroud'} id={'hh'}/>
+            <Checkbox text={'Pokimane'} id={'pat'}/>
+            <Checkbox text={'Dr Disrespect'} id={'huda'}/>
           </div>
-        </div>
         <Subscribe/>
       </div>
       <div className=' bg-white w-[100vw] -mb-24 mt-10'>

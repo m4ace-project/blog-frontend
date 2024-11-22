@@ -18,18 +18,13 @@ function Personalfinance() {
         <Suggest/>
         </div>
         <p className='text-center font-bold mt-3 text-xs md:text-base'>Personal Finance and Investing</p>
-        <div className='flex text-[#001F54] justify-center items-center mt-5'>
-          <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Dave Ramsey</li>
-            <li className='mt-3 '>Robert Kiyosaki</li>
-            <li className='mt-3 '>Suze Orman</li>
-            <li className='mt-3 '>Ramit Sethi</li>
-            <li className='mt-3 '>Jim Cramer</li>
-          </ul>
-          <div className='ml-[20%] ' >
-            <Checkbox/>
+          <div className='flex flex-col text-[#001F54] justify-center items-center mt-5' >
+          <Checkbox text={'Dave Ramsey'} id={'ana'}/>
+            <Checkbox text={'Robert Kiyosaki'} id={'gladys'}/>
+            <Checkbox text={'Suze Orman'} id={'hh'}/>
+            <Checkbox text={'Ramit Sethi'} id={'pat'}/>
+            <Checkbox text={'Jim Cramer'} id={'huda'}/>
           </div>
-        </div>
         <Subscribe/>
       </div>
       <div className=' bg-white w-[100vw] -mb-24 mt-10'>
