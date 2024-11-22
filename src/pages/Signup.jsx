@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Frame199 from '../assets/Frame 199.png';
 import GoogleIcon from '../assets/google.png';
 import FacebookIcon from '../assets/facebook.png';
 import {baseUrl} from '../utils/url'
 import axios from 'axios';
+
 function SignUp() {
     const [data, setData] = useState([])
     const [email, setEmail] = useState('')
