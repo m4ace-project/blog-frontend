@@ -19,18 +19,13 @@ function Food() {
         <Suggest/>
         </div>
         <p className='text-center font-bold mt-3 text-xs md:text-base'>Food and Cooking</p>
-        <div className='flex text-[#001F54] justify-center items-center mt-5'>
-          <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Gordon Ramsay</li>
-            <li className='mt-3 '>Julia Child</li>
-            <li className='mt-3 '>Ina Garten</li>
-            <li className='mt-3 '>Nigella Lawson</li>
-            <li className='mt-3 '>Jamie Oliver</li>
-          </ul>
-          <div className='ml-[20%] ' >
-            <Checkbox/>
+          <div className='flex flex-col text-[#001F54] justify-center items-center mt-5' >
+          <Checkbox text={'Gordon Ramsay'} id={'ana'}/>
+            <Checkbox text={'Julia Child'} id={'gladys'}/>
+            <Checkbox text={'Ina Garten'} id={'hh'}/>
+            <Checkbox text={'Nigella Lawson'} id={'pat'}/>
+            <Checkbox text={'Jamie Oliver'} id={'huda'}/>
           </div>
-        </div>
         <Subscribe/>
       </div>
       <div className=' bg-white w-[100vw] -mb-24 mt-10'>

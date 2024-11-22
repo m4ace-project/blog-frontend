@@ -17,18 +17,13 @@ function Fitness() {
         <Suggest/>
         </div>
         <p className='text-center font-bold mt-3 text-xs md:text-base'>Fitness and Wellness</p>
-        <div className='flex text-[#001F54] justify-center items-center mt-5'>
-          <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Kayla Itsines</li>
-            <li className='mt-3 '>Jillian Michaels</li>
-            <li className='mt-3 '>Adriene Mishler</li>
-            <li className='mt-3 '>Tony Horton</li>
-            <li className='mt-3 '>Deepak Chopra</li>
-          </ul>
-          <div className='ml-[20%] ' >
-            <Checkbox/>
+          <div className='flex flex-col text-[#001F54] justify-center items-center mt-5' >
+          <Checkbox text={'Kayla Itsines'} id={'ana'}/>
+            <Checkbox text={'Jillian Michaels'} id={'gladys'}/>
+            <Checkbox text={'Adriene Mishler'} id={'hh'}/>
+            <Checkbox text={'Tony Horton'} id={'pat'}/>
+            <Checkbox text={'Deepak Chopra'} id={'huda'}/>
           </div>
-        </div>
         <Subscribe/>
       </div>
       <div className=' bg-white w-[100vw] -mb-24 mt-10'>
