@@ -16,7 +16,7 @@ function Navbar() {
         <img className=" md:hidden mt-3 h-4 ml-[14em]" src="./src/assets/burger.png" alt="" />
         <div className="flex border-[1px] ml-3 md:relative right-[5%] border-[#001F54] rounded-full mt-[1.2%]  w-[10em] h-7">
             <img className=" ml-1 mt-2 w-3 h-3" src="./src/assets/search-normal.png" alt=""/>
-            <input className=" text-[#6a7fa4] w-[3em] text-xs ml-1 " value="Search" type="text" />
+            <input className=" text-[#6a7fa4] w-[10em] text-xs ml-1 " value="Search" type="text" />
         </div>
 </div>
   )

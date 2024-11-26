@@ -17,18 +17,13 @@ function Travel() {
         <Suggest/>
         </div>
         <p className='text-center font-bold mt-3 text-xs md:text-base'>Travel and Adventure</p>
-        <div className='flex text-[#001F54] justify-center items-center mt-5'>
-          <ul className=' text-xs md:text-sm font-semibold'>
-            <li className='mt-3 ' >Rick Steves</li>
-            <li className='mt-3 '>Lonely Planet</li>
-            <li className='mt-3 '>Paul Theroux</li>
-            <li className='mt-3 '>Anthony Bourdain</li>
-            <li className='mt-3 '>Raya Sorkhabi</li>
-          </ul>
-          <div className='ml-[20%] ' >
-            <Checkbox/>
+          <div className='flex flex-col text-[#001F54] justify-center items-center mt-5' >
+          <Checkbox text={'Rick Steves'} id={'ana'}/>
+            <Checkbox text={'Lonely Planet'} id={'gladys'}/>
+            <Checkbox text={'Paul Theroux'} id={'hh'}/>
+            <Checkbox text={'Anthony Bourdain'} id={'pat'}/>
+            <Checkbox text={'Raya Sorkhabi'} id={'huda'}/>
           </div>
-        </div>
         <Subscribe/>
       </div>
       <div className=' bg-white w-[100vw] -mb-24 mt-10'>
