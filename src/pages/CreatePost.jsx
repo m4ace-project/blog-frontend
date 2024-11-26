@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Widget from '../components/common/Widget';
 import PostHeader from '../components/pages/post/PostHeader';
-import { Link } from 'react-router-dom';
+
 
 function CreatePost() {
+
+
   return (
     <div className='bg-[#FFFCD8] h-[100vh] md:flex'>
       <div className='md:w-[20%]'>
@@ -13,7 +16,11 @@ function CreatePost() {
         <PostHeader />
         <div className='mx-14 lg:flex lg:gap-[5rem] mt-5 lg:mx-10'>
           <div className='lg:w-[45%] mb-14 md:mb-0'>
-            <h5 className='bg-white h-[10rem] w-[70%] place-self-center lg:w-full lg:h-[7rem] rounded-[1rem] flex justify-center items-center'>TEXTS</h5>
+            <form action="" className='w-full'>
+            <input type="text" name="Title" placeholder='Title' id="" className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' />
+            <br/>
+            <textarea name="Content" placeholder='Text' className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'/>
+            </form>
             <div className='flex gap-[8rem] my-10 lg:my-5 justify-center'>
               <div className='flex gap-5'>
                 <img src="./src/assets/image.svg" alt="" />
