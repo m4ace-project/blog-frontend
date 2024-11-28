@@ -1,10 +1,58 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Widget from '../components/common/Widget';
 import PostHeader from '../components/pages/post/PostHeader';
 
 
 function CreatePost() {
+
+
+
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const handlePublish = async (e) => {
+    e.preventDefault(); 
+    setLoading(true);
+
+    const apiUrl = 'https://olaniyi.pythonanywhere.com/api/posts/';
+    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMwNDQxMDcwLCJpYXQiOjE3MzA0Mzc0NzAsImp0aSI6ImRkNzZlMzEyZTczYjQxMzE5MzZlNmFjMWVmN2Y4NzRmIiwidXNlcl9pZCI6M30.LfY4l4OvOSH7Tgzz-fOnMOttN3I7dFPDUJMiZxdReZs'; 
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title,
+          content,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setMessage('Post created successfully!');
+        setTitle('');
+        setContent('');
+        console.log('Response Data:', data); 
+      } else {
+        const errorData = await response.json();
+        setMessage(`Error: ${errorData.detail || 'Failed to create post'}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('Error: Unable to create post');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+
 
 
   return (
@@ -16,19 +64,30 @@ function CreatePost() {
         <PostHeader />
         <div className='mx-14 lg:flex lg:gap-[5rem] mt-5 lg:mx-10'>
           <div className='lg:w-[45%] mb-14 md:mb-0'>
-            <form action="" className='w-full'>
-            <input type="text" name="Title" placeholder='Title' id="" className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' />
+            <form onSubmit={handlePublish} className='w-full'>
+            <input type="text" name="Title" placeholder='Title' value={title}
+                onChange={(e) => setTitle(e.target.value)} className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' />
             <br/>
-            <textarea name="Content" placeholder='Text' className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'/>
-            </form>
+            <textarea name="Content" placeholder='Text' value={content}
+                onChange={(e) => setContent(e.target.value)} className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'/>
+
+
             <div className='flex gap-[8rem] my-10 lg:my-5 justify-center'>
               <div className='flex gap-5'>
                 <img src="./src/assets/image.svg" alt="" />
                 <img src="./src/assets/lucide_video.svg" alt="" />
                 <img src="./src/assets/edit-circle-outline.svg" alt="" />
               </div>
-              <button className='bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl'>Publish</button>
+              <button
+                type='submit'
+                disabled={loading}
+                className='bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl mt-4'
+              >
+                {loading ? 'Publishing...' : 'Publish'}
+              </button>
             </div>
+            </form>
+            {message && <p className='mt-4 text-red-600'>{message}</p>}
             <div>
             <h5 className='text-[#001F54] text-xl font-bold text-center mb-10 lg:mb-4'>Recent Posts</h5>
             <div className='md:w-[100%] md:flex md:justify-between md:gap-5 ml-5 '>
