@@ -13,18 +13,33 @@ function CreatePost() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
+
+  const getToken = () => {
+    return localStorage.getItem('token');
+  };
+
+
   const handlePublish = async (e) => {
     e.preventDefault(); 
     setLoading(true);
 
     const apiUrl = 'https://olaniyi.pythonanywhere.com/api/posts/';
-    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMwNDQxMDcwLCJpYXQiOjE3MzA0Mzc0NzAsImp0aSI6ImRkNzZlMzEyZTczYjQxMzE5MzZlNmFjMWVmN2Y4NzRmIiwidXNlcl9pZCI6M30.LfY4l4OvOSH7Tgzz-fOnMOttN3I7dFPDUJMiZxdReZs'; 
+
+
+    const token = getToken();
+
+    if (!token) {
+      setMessage('Error: You are not logged in!');
+      setLoading(false);
+      return;
+    }
+
 
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
-          'Authorization': token,
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -66,10 +81,10 @@ function CreatePost() {
           <div className='lg:w-[45%] mb-14 md:mb-0'>
             <form onSubmit={handlePublish} className='w-full'>
             <input type="text" name="Title" placeholder='Title' value={title}
-                onChange={(e) => setTitle(e.target.value)} className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' />
+            onChange={(e) => setTitle(e.target.value)} className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' />
             <br/>
             <textarea name="Content" placeholder='Text' value={content}
-                onChange={(e) => setContent(e.target.value)} className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'/>
+            onChange={(e) => setContent(e.target.value)} className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'/>
 
 
             <div className='flex gap-[8rem] my-10 lg:my-5 justify-center'>
