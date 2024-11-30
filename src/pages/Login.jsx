@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
 
-
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -33,15 +31,21 @@ function Login() {
       });
 
       if (!response.ok) {
-        throw new Error("Login failed. Please check your Login Details.");
+        throw new Error("Login failed. Please check your login details.");
       }
 
       const data = await response.json();
 
-      const { role } = data;
+      const { access, role } = data;
+
+      if (!access) {
+        throw new Error("Login successful, but no access token received.");
+      }
+
+      localStorage.setItem("token", access);
 
       if (role === "content creator") {
-        navigate("/"); 
+        navigate("/createpost"); 
       } else if (role === "reader") {
         navigate("/personalization"); 
       } else {
