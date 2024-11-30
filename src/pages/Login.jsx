@@ -24,10 +24,10 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+        body: {
+          email: email,
+          password: password,
+        },
       });
 
       if (!response.ok) {
@@ -35,23 +35,30 @@ function Login() {
       }
 
       const data = await response.json();
+      console.log(data);
+  
+      const { access_token, role, email, id } = data;
 
-      const { access, role } = data;
-
-      if (!access) {
+      if (!access_token) {
         throw new Error("Login successful, but no access token received.");
       }
 
-      localStorage.setItem("token", access);
+      localStorage.setItem('token', access_token);
 
-      if (role === "content creator") {
-        navigate("/createpost"); 
+      if (role === "content_creator") {
+        navigate("/createpost", {
+        state: { token: access_token },
+        }); 
       } else if (role === "reader") {
-        navigate("/personalization"); 
+        navigate("/personalization", {
+          state: { token: access_token },
+        }); 
       } else {
         throw new Error("Unrecognized role. Please contact support.");
       }
-    } catch (err) {
+    } 
+    catch (err) {
+      console.log(err);
       setError(err.message);
     } finally {
       setLoading(false);

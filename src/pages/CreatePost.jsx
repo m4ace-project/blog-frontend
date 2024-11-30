@@ -13,15 +13,30 @@ function CreatePost() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
+  const navigate = useNavigate();
+
 
   const getToken = () => {
     return localStorage.getItem('token');
   };
 
 
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      setMessage('Error: You must log in to create a post.');
+      navigate('/login');
+    }
+  }, [navigate]);
+
+
+
+
   const handlePublish = async (e) => {
     e.preventDefault(); 
     setLoading(true);
+    setMessage('');
 
     const apiUrl = 'https://olaniyi.pythonanywhere.com/api/posts/';
 
@@ -29,7 +44,7 @@ function CreatePost() {
     const token = getToken();
 
     if (!token) {
-      setMessage('Error: You are not logged in!');
+      setMessage('Error: Missing authentication token.');
       setLoading(false);
       return;
     }
@@ -53,7 +68,7 @@ function CreatePost() {
         setMessage('Post created successfully!');
         setTitle('');
         setContent('');
-        console.log('Response Data:', data); 
+        console.log('Post created:', data); 
       } else {
         const errorData = await response.json();
         setMessage(`Error: ${errorData.detail || 'Failed to create post'}`);
