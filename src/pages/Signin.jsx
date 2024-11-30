@@ -15,7 +15,7 @@ function Signin() {
                 <div className="space-y-6">
                 <Link 
                   to='/signup'
-                  state={{ role: "content creator" }} 
+                  state={{ role: "content_creator" }} 
                   className="w-full md:w-96 flex items-center py-3 bg-[#FF5722] text-[#FFFFFF] rounded-[20px] text-base md:text-lg font-semibold shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400">                  
                   <div className="flex items-center justify-center w-4 h-8 rounded-full mr-2">
                    <img src={circle} alt="Icon" className="w-3 h-6 ml-4 object-contain rounded-full" />
