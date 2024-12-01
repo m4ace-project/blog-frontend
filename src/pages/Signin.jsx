@@ -2,8 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Frame199 from '../assets/Frame 199.png';
 import circle from '../assets/record circle.png';
+import {baseUrl} from '../utils/url';
 
 function Signin() {
+             const url = `${baseUrl}/profile/update`
+    fetch(url, {
+            method: "PUT",
+    })
+
     return (
         <div className="min-h-screen bg-[#FFFCD8]">
 

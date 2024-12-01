@@ -100,12 +100,11 @@ function SignUp() {
                         <input type="checkbox" id="terms" className="ml-10" />
                     </div>
                     <div className=" ">
-                    <Link 
-                         to="/inbox" 
+                    <button
                     
                         className="w-full inline-block py-3 text-center bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] rounded-full font-semibold font-inter text-lg">
                         Continue
-                        </Link>
+                        </button>
                     
                     </div>
                     <div className="flex items-center justify-center mt-4 space-x-4 text-[#001F54]">

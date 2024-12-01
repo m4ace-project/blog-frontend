@@ -126,9 +126,11 @@ const Home = () => {
             ))}
           </div>
         </main>
-          <footer className="bg-[#FFFFFF] text-[#001F54] font-inter font-medium text-sm md:text-lg lg:text-xl p-2 md:p-4 text-center whitespace-nowrap">
-          <p>Copyright &copy; Mentorship For Acceleration 2024. All Rights Reserved</p>
-        </footer>
+        <footer className="bg-[#FFFFFF] text-[#001F54] font-inter font-medium text-sm md:text-lg lg:text-xl p-2 md:p-4 text-center whitespace-nowrap">
+  <p className="text-xs sm:text-sm md:text-lg lg:text-xl px-2 md:px-4">
+    Copyright &copy; Mentorship For Acceleration 2024. All Rights Reserved
+  </p>
+</footer>
       </div>
     </div>
   );

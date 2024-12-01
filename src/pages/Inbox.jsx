@@ -31,7 +31,7 @@ function Inbox() {
                 headers: { 
                     'Content-Type': 'application/json', 
                 },
-                body: JSON.stringify({ otp: otp.join("") }) 
+                body:{"otp":JSON.stringify({ otp: otp.join("") }) }
             });
 
             if (!response.ok) {
