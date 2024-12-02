@@ -11,12 +11,15 @@ function Login() {
 
   const navigate = useNavigate();
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    // setError(null);
 
     const url = "https://olaniyi.pythonanywhere.com/api/login/";
+
+
 
     try {
       const response = await fetch(url, {
@@ -24,10 +27,10 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
           email: email,
           password: password,
-        },
+        }),
       });
 
       if (!response.ok) {
@@ -37,33 +40,31 @@ function Login() {
       const data = await response.json();
       console.log(data);
   
-      const { access_token, role, email, id } = data;
+      // const { access_token, role, email, id } = data;
 
-      if (!access_token) {
-        throw new Error("Login successful, but no access token received.");
-      }
+      localStorage.setItem('token', data.access_token);
 
-      localStorage.setItem('token', access_token);
+      if (data.role === "content_creator") {
+        if (data.name === null) {
+          navigate("/aboutyou", { state: { token: data.access_token } });
+        } else {
+          navigate("/createpost", { state: { token: data.access_token } });
+        }; 
+      } else if (data.role === "reader") {
+        if (data.name === null) {
+          navigate("/profileinfo", { state: { token: data.access_token } });
+        } else {
+          navigate("/readerdashboard", { state: { token: data.access_token } });
+        }; 
+      } 
 
-      if (role === "content_creator") {
-        navigate("/createpost", {
-        state: { token: access_token },
-        }); 
-      } else if (role === "reader") {
-        navigate("/personalization", {
-          state: { token: access_token },
-        }); 
-      } else {
-        throw new Error("Unrecognized role. Please contact support.");
-      }
-    } 
-    catch (err) {
+    } catch (err) {
       console.log(err);
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  };
+  }
   
 
 
