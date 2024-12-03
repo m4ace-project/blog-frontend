@@ -109,17 +109,17 @@ function AboutYou() {
             </div>
             <form onSubmit={handleSubmit} className=''>
               <label htmlFor="name">Name*</label><br/>
-              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="name"
+              <input type="text" className='border border-black rounded-full pl-3 w-full h-10 mb-7' id="name"
               name="name"
               value={formData.name}
               onChange={handleChange} required/><br/>
               <label htmlFor="username">Username*</label><br/>
-              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="username"
+              <input type="text" className='border border-black rounded-full pl-3 w-full h-10 mb-7' id="username"
               name="username"
               value={formData.username}
               onChange={handleChange} required/><br/>
               <label htmlFor="bio">Short Bio*</label>
-              <input type="text" className='border border-black rounded-full w-full h-10' id="bio"
+              <input type="text" className='border border-black rounded-full pl-3 w-full h-10' id="bio"
               name="bio"
               value={formData.bio}
               onChange={handleChange} required/>
