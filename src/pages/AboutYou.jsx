@@ -105,17 +105,17 @@ function AboutYou() {
                 onChange={(e) => setProfilePicture(e.target.files[0])}/>
             </div>
               <label htmlFor="name">Name*</label><br/>
-              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="name"
+              <input type="text" className='border border-black rounded-full pl-3 w-full h-10 mb-7' id="name"
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)} required/><br/>
               <label htmlFor="username">Username*</label><br/>
-              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="username"
+              <input type="text" className='border border-black rounded-full pl-3 w-full h-10 mb-7' id="username"
               name="username"
               value={username}
               onChange={(e)=> setUsername(e.target.value)} required/><br/>
               <label htmlFor="bio">Short Bio*</label>
-              <input type="text" className='border border-black rounded-full w-full h-10' id="bio"
+              <input type="text" className='border border-black rounded-full pl-3 w-full h-10' id="bio"
               name="bio"
               value={bio}
               onChange={(e)=> setBio(e.target.value)} required/>
