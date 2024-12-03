@@ -1,8 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Widget from '../components/common/Widget';
 import PostHeader from '../components/pages/post/PostHeader';
 
 function AboutYou() {
+
+
+
+  const [formData, setFormData] = useState({
+    name: '',
+    username: '',
+    bio: '',
+    profilePicture: null,
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFileChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      profilePicture: e.target.files[0],
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const url = 'https://olaniyi.pythonanywhere.com/api/content-creator/profile/create/';
+    
+    const token = localStorage.getItem('token', data.access_token);
+
+    const data = new FormData();
+    data.append('name', formData.name);
+    data.append('username', formData.username);
+    data.append('bio', formData.bio);
+    if (formData.profilePicture) {
+      data.append('profile_picture', formData.profilePicture);
+    }
+
+    try {
+      const response = await axios.post(url, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Profile created successfully:', response.data);
+      alert('Profile created successfully!');
+      navigate('/createpost');
+    } catch (error) {
+      console.error('Error creating profile:', error);
+      alert('Failed to create profile. Please try again.');
+    }
+  };
+
+
+
+
   return (
     <div className='bg-[#FFFCD8] h-[100vh] md:flex'>
       <div className='md:w-[20%]'>
@@ -33,22 +95,47 @@ function AboutYou() {
             <div className='md:flex md:justify-between md:gap-5 mb-8'>
               <h5 className='text-[#001F54] font-bold text-xl flex items-center'>Profile information</h5>
               <div className='mt-10 md:mt-0'>
-                <img src="./src/assets/profile.svg" className='md:justify-self-center' alt="" />
-                <button className='bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl mt-3'>Upload</button>
+              <label htmlFor="profilePicture">Profile Picture*</label>
+              <br />
+              <input
+                type="file"
+                className="border-2 border-black rounded-full w-14 h-14 my-5"
+                id="profilePicture"
+                name="profilePicture"
+                onChange={handleFileChange}/>
+                {/* <img src="./src/assets/profile.svg" className='md:justify-self-center' alt="" />
+                <button className='bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl mt-3'>Upload</button> */}
               </div>
             </div>
-            <form className=''>
-              <label for="">Name*</label><br/>
-              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="" name="" /><br/>
-              <label for="">Username*</label><br/>
-              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="" name="" /><br/>
-              <label for="">Short Bio*</label>
-              <input type="text" className='border border-black rounded-full w-full h-10' id="" name="" />
+            <form onSubmit={handleSubmit} className=''>
+              <label htmlFor="name">Name*</label><br/>
+              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange} required/><br/>
+              <label htmlFor="username">Username*</label><br/>
+              <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange} required/><br/>
+              <label htmlFor="bio">Short Bio*</label>
+              <input type="text" className='border border-black rounded-full w-full h-10' id="bio"
+              name="bio"
+              value={formData.bio}
+              onChange={handleChange} required/>
+              <div className="mt-10 flex justify-between">
+                <button type="submit" className="bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl">
+                  Save
+                </button>
+                <button
+                  type="button"
+                  className="bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl"
+                  onClick={() => setFormData({ name: '', username: '', bio: '', profilePicture: null })}
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
-            <div className='mt-10 flex justify-between'>
-              <button className='bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl mt-3'>Save</button>
-              <button className='bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl mt-3'>Cancel</button>
-            </div>
           </div>
         </div>
       </div>

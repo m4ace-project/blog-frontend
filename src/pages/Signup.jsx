@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import Frame199 from '../assets/Frame 199.png';
 import GoogleIcon from '../assets/google.png';
 import FacebookIcon from '../assets/facebook.png';
@@ -13,14 +13,21 @@ function SignUp() {
     const [cursor, setCursor] = useState(true)
     const [showAlert, setShowAlert] = useState(false)
     const [alert, setAlert] = useState('')
-    const url = `${baseUrl}/register`
+    const [isLoading, setIsLoading] = useState(false)
+    const url = `https://m4aceblog.onrender.com/register`
+    const navigate = useNavigate();
+    let { state } = useLocation();
 
+    console.log(state);
+    
     if (email != '' && password != ''){
         () => setCursor(false)
     }
 
     const handleSubmit = (e)=>{
         e.preventDefault()
+        console.log('clicked')
+        setIsLoading(true)
         const details =  {
             email: email,
             password: password,
@@ -28,18 +35,24 @@ function SignUp() {
             role: "reader"
         }
 
-        axios.post(url,
+        axios.post("https://olaniyi.pythonanywhere.com/api/register/",
             {
                 email: email,
                 password: password,
                 password2: password,
-                role: "reader"
+                role: state.role
             })
           .then(function (response) {
             console.log(response);
+            setShowAlert(true)
+            setAlert(response.data.message)
+            navigate("/inbox");
           })
           .catch(function (error) {
             console.log(error);
+            setIsLoading(false)
+          }).finally(()=>{
+            // setIsLoading(false)
           });
 
         // fetch(url, {
@@ -100,16 +113,10 @@ function SignUp() {
                         <input type="checkbox" id="terms" className="ml-10" />
                     </div>
                     <div className=" ">
-                    {/* <Link 
-                         to="/inbox" 
-                    
+                    <button 
+                        onClick={handleSubmit}
                         className="w-full inline-block py-3 text-center bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] rounded-full font-semibold font-inter text-lg">
-                        Continue
-                        </Link> */}
-                         <button
-                         onClick={ handleSubmit}
-                        className="w-full inline-block py-3 text-center bg-[#FF5722] hover:bg-[#ff3b00] text-[#FFFFFF] rounded-full font-semibold font-inter text-lg">
-                        Continue
+                        {isLoading ? "loading..." : "Continue" }
                         </button>
                     
                     </div>
