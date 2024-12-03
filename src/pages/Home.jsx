@@ -20,24 +20,26 @@ const Home = () => {
         <nav className="bg-[#FFFFFF] p-4">
           <div className="max-w-7xl mx-auto px-2">
             <div className="flex items-center justify-between flex-wrap">
-              <div className="flex items-center">
-                <img src={Frame198} alt="logo" className="h-12 w-auto sm:absolute " />
-              </div>
-              <div className="sm:hidden ">
-                <button
-                  id="mobile-menu-button"
-                  className="p-2  text-[#001F54] rounded-md "
-                  onClick={() => setMenuOpen(!menuOpen)}>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                    className="h-6 w-6 ">
-                    <path d="M0 96C0 78.3 14.3 64 32 64h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zm0 160c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zm448 160c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h384c17.7 0 32 14.3 32 32z" />
-                  </svg>
-                </button>
+            <div className=" w-full sm:w-auto flex ">
+                <img src={Frame198} alt="logo" className="h-12 w-auto " />
+                <div className="sm:hidden flex-grow">
+                </div>
+                <div className="sm:hidden ">
+                  <button
+                    id="mobile-menu-button"
+                    className="p-2  text-[#001F54] rounded-md  "
+                    onClick={() => setMenuOpen(!menuOpen)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                      className="h-6 w-6 ">
+                     <path d="M0 96C0 78.3 14.3 64 32 64h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zm0 160c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zm448 160c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h384c17.7 0 32 14.3 32 32z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div
                className={`${
                  menuOpen ? 'block' : 'hidden'
-               }  flex flex-col space-y-3  sm:space-y-0 sm:flex sm:flex-row sm:space-x-4 sm:items-center`}>
+               }  flex flex-col space-y-3 ml-12  sm:space-y-0 sm:flex sm:flex-row sm:space-x-4 sm:items-center`}>
                {['Services', 'Articles', 'Pricing', 'Resources', 'Contact Us'].map(
                  (item, index) => (
                    <a

@@ -4,6 +4,7 @@ import Frame199 from '../assets/Frame 199.png';
 import circle from '../assets/record circle.png';
 
 function Signin() {
+    let role = {item: "yes"}
     return (
         <div className="min-h-screen bg-[#FFFCD8]">
 
@@ -13,7 +14,8 @@ function Signin() {
                 <p className="text-lg md:text-xl font-inter text-[#001F54] font-semibold mb-8">Select a category</p>
                 <div className="space-y-6">
                 <Link 
-                  to="/signup" 
+                  to='/signup'
+                  state={{ role: "content_creator" }} 
                   className="w-full md:w-96 flex items-center py-3 bg-[#FF5722] text-[#FFFFFF] rounded-[20px] text-base md:text-lg font-semibold shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400">                  
                   <div className="flex items-center justify-center w-4 h-8 rounded-full mr-2">
                    <img src={circle} alt="Icon" className="w-3 h-6 ml-4 object-contain rounded-full" />
@@ -23,7 +25,8 @@ function Signin() {
                        </span>
                         </Link>
                         <Link 
-                         to="/signup" 
+                         to={'/signup'}
+                         state={{ role: "reader" }} 
                     className="w-full md:w-96 flex items-center py-3 bg-[#FF5722] text-[#FFFFFF] rounded-[20px] text-base md:text-lg font-semibold shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400">
                         <div className="flex items-center justify-center w-4 h-8 rounded-full mr-4">
                         <img src={circle} alt="Icon" className="w-3 h-6 ml-4 object-contain rounded-full" />

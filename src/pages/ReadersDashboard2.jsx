@@ -8,7 +8,7 @@ import Rectangle35 from '../assets/Rectangle 35.png';
 import Rectangle36 from '../assets/Rectangle 36.png';
 import Rectangle22 from '../assets/Rectangle 22.png';
 import MessageIcon from'../assets/messages.png';
-import HeartIcon from'../assets/Heart.png';
+import HeartIcon from'../assets/heart.png';
 import Vector8 from'../assets/Vector (8).png';
 import Vector3 from'../assets/Vector (3).png';
 import Vector4 from'../assets/Vector (4).png';

@@ -75,7 +75,7 @@ function App() {
         <Route path="/signin" element={ <Signin/> } />
         <Route path="/signup" element={ <Signup/> } />
         <Route path="/inbox" element={ <Inbox/> } />
-        <Route path="/profileInfo" element={ <ProfileInfo/> } />
+        <Route path="/profileinfo" element={ <ProfileInfo/> } />
         <Route path="/chat" element={ <Chat/> } />
         <Route path="/readerdashboard" element={ <ReaderDashboard/> } />
         <Route path="/readersdashboard2" element={ <ReadersDashboard2/> } />
