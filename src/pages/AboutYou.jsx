@@ -7,43 +7,41 @@ import PostHeader from '../components/pages/post/PostHeader';
 function AboutYou() {
 
 
-
-  const [formData, setFormData] = useState({
-    name: '',
-    username: '',
-    bio: '',
-    profilePicture: null,
-  });
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [bio, setBio] = useState('');
+  const [profilePicture, setProfilePicture] = useState(null);
 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleFileChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      profilePicture: e.target.files[0],
-    }));
-  };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    console.log(profilePicture);
+    
+    // const data = new FormData();
+
     const url = 'https://olaniyi.pythonanywhere.com/api/content-creator/profile/create/';
     
-    const token = localStorage.getItem('token', data.access_token);
+    const token = localStorage.getItem('token');
 
-    const data = new FormData();
-    data.append('name', formData.name);
-    data.append('username', formData.username);
-    data.append('bio', formData.bio);
-    if (formData.profilePicture) {
-      data.append('profile_picture', formData.profilePicture);
+    console.log(token);
+    
+
+    // data.append('name', name);
+    // data.append('username', username);
+    // data.append('bio', bio);
+    // if (profilePicture) {
+    //   data.append('profile_picture', profilePicture);
+    // }
+
+
+    const data = {
+      name: name,
+      username: username,
+      bio: bio,
+      profilePicture: profilePicture.name,
     }
 
     try {
@@ -94,35 +92,33 @@ function AboutYou() {
           <div className='bg-white lg:w-[40%] mx-14 lg:mx-0 px-5 mt-10 pb-14 lg:pb-0 lg:mt-0 pt-5'>
             <div className='md:flex md:justify-between md:gap-5 mb-8'>
               <h5 className='text-[#001F54] font-bold text-xl flex items-center'>Profile information</h5>
-              <div className='mt-10 md:mt-0'>
+              
+            </div>
+            <form onSubmit={handleSubmit} className=''>
+            <div className='mt-10 md:mt-0'>
               <label htmlFor="profilePicture">Profile Picture*</label>
               <br />
               <input
                 type="file"
-                className="border-2 border-black rounded-full w-14 h-14 my-5"
                 id="profilePicture"
                 name="profilePicture"
-                onChange={handleFileChange}/>
-                {/* <img src="./src/assets/profile.svg" className='md:justify-self-center' alt="" />
-                <button className='bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl mt-3'>Upload</button> */}
-              </div>
+                onChange={(e) => setProfilePicture(e.target.files[0])}/>
             </div>
-            <form onSubmit={handleSubmit} className=''>
               <label htmlFor="name">Name*</label><br/>
               <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="name"
               name="name"
-              value={formData.name}
-              onChange={handleChange} required/><br/>
+              value={name}
+              onChange={(e) => setName(e.target.value)} required/><br/>
               <label htmlFor="username">Username*</label><br/>
               <input type="text" className='border border-black rounded-full w-full h-10 mb-7' id="username"
               name="username"
-              value={formData.username}
-              onChange={handleChange} required/><br/>
+              value={username}
+              onChange={(e)=> setUsername(e.target.value)} required/><br/>
               <label htmlFor="bio">Short Bio*</label>
               <input type="text" className='border border-black rounded-full w-full h-10' id="bio"
               name="bio"
-              value={formData.bio}
-              onChange={handleChange} required/>
+              value={bio}
+              onChange={(e)=> setBio(e.target.value)} required/>
               <div className="mt-10 flex justify-between">
                 <button type="submit" className="bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl">
                   Save
@@ -130,7 +126,6 @@ function AboutYou() {
                 <button
                   type="button"
                   className="bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl"
-                  onClick={() => setFormData({ name: '', username: '', bio: '', profilePicture: null })}
                 >
                   Cancel
                 </button>
