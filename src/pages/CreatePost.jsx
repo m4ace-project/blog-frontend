@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Widget from '../components/common/Widget';
 import PostHeader from '../components/pages/post/PostHeader';
@@ -8,78 +8,67 @@ function CreatePost() {
 
 
 
+
+
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const [profileImage, setProfileImage] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-
-  const getToken = () => {
-    return localStorage.getItem('token');
-  };
-
-
-
-  useEffect(() => {
-    const token = getToken();
-    if (!token) {
-      setMessage('Error: You must log in to create a post.');
-      navigate('/login');
-    }
-  }, [navigate]);
-
-
-
-
-  const handlePublish = async (e) => {
-    e.preventDefault(); 
-    setLoading(true);
-    setMessage('');
-
-    const apiUrl = 'https://olaniyi.pythonanywhere.com/api/posts/';
-
-
-    const token = getToken();
-
-    if (!token) {
-      setMessage('Error: Missing authentication token.');
-      setLoading(false);
+    if (!title || !content) {
+      alert("Please fill in both the title and content fields.");
       return;
     }
 
+    // const formData = new FormData();
+    // formData.append('title', title);
+    // formData.append('content', content);
+    // if (profileImage) {
+    //   formData.append('image', profileImage);
+    // }
+  
+    const token = localStorage.getItem('token'); 
+    if (!token) {
+      alert("You need to log in first!");
+      return;
+    }
 
     try {
-      const response = await fetch(apiUrl, {
+      setIsSubmitting(true);
+
+      const response = await fetch('https://olaniyi.pythonanywhere.com/api/posts/', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          title,
-          content,
-        }),
+        body: {
+          title: title,
+          content: content,
+        }
       });
 
       if (response.ok) {
         const data = await response.json();
-        setMessage('Post created successfully!');
+        alert("Post created successfully!");
+        console.log("Response data:", data);
         setTitle('');
         setContent('');
-        console.log('Post created:', data); 
+        setProfileImage(null);
       } else {
         const errorData = await response.json();
-        setMessage(`Error: ${errorData.detail || 'Failed to create post'}`);
+        alert(`Error: ${errorData.message || 'Failed to create post.'}`);
       }
     } catch (error) {
-      console.error('Error:', error);
-      setMessage('Error: Unable to create post');
+      console.error("Error creating post:", error);
+      alert("An error occurred. Please try again later.");
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   };
+
 
 
 
@@ -94,30 +83,37 @@ function CreatePost() {
         <PostHeader />
         <div className='mx-14 lg:flex lg:gap-[5rem] mt-5 lg:mx-10'>
           <div className='lg:w-[45%] mb-14 md:mb-0'>
-            <form onSubmit={handlePublish} className='w-full'>
-            <input type="text" name="Title" placeholder='Title' value={title}
-            onChange={(e) => setTitle(e.target.value)} className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' />
+            <form onSubmit={handleSubmit} className='w-full'>
+            <input 
+            type="text" 
+            name="Title" 
+            placeholder='Title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)} 
+            className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' 
+            />
             <br/>
-            <textarea name="Content" placeholder='Text' value={content}
-            onChange={(e) => setContent(e.target.value)} className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'/>
+            <textarea 
+              placeholder='Text'
+              value={content}
+              onChange={(e) => setContent(e.target.value)} 
+              className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'
+              />
 
 
             <div className='flex gap-[8rem] my-10 lg:my-5 justify-center'>
               <div className='flex gap-5'>
-                <img src="./src/assets/image.svg" alt="" />
-                <img src="./src/assets/lucide_video.svg" alt="" />
                 <img src="./src/assets/edit-circle-outline.svg" alt="" />
               </div>
               <button
-                type='submit'
-                disabled={loading}
-                className='bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl mt-4'
-              >
-                {loading ? 'Publishing...' : 'Publish'}
-              </button>
+                  type='submit'
+                  className={`bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl mt-4 ${isSubmitting ? "opacity-50" : ""}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Publishing..." : "Publish"}
+                </button>
             </div>
             </form>
-            {message && <p className='mt-4 text-red-600'>{message}</p>}
             <div>
             <h5 className='text-[#001F54] text-xl font-bold text-center mb-10 lg:mb-4'>Recent Posts</h5>
             <div className='md:w-[100%] md:flex md:justify-between md:gap-5 ml-5 '>

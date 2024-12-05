@@ -20,7 +20,7 @@ function Welcome() {
             <div className='flex place-content-center'>
             
                 <p>Don't have an account?</p>
-                <Link to={'/signup'}><p className='font-bold ps-5'>Sign up</p></Link>
+                <Link to={'/signin'}><p className='font-bold ps-5'>Sign up</p></Link>
             
             </div>
 
