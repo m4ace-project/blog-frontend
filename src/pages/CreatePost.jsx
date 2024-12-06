@@ -6,28 +6,16 @@ import PostHeader from '../components/pages/post/PostHeader';
 
 function CreatePost() {
 
-
-
-
-
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [profileImage, setProfileImage] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !content) {
-      alert("Please fill in both the title and content fields.");
-      return;
-    }
-
-    // const formData = new FormData();
-    // formData.append('title', title);
-    // formData.append('content', content);
-    // if (profileImage) {
-    //   formData.append('image', profileImage);
+    // if (!title || !content) {
+    //   alert("Please fill in both the title and content fields.");
+    //   return;
     // }
   
     const token = localStorage.getItem('token'); 
@@ -36,10 +24,15 @@ function CreatePost() {
       return;
     }
 
+
+    // console.log(handleSubmit)
+
+    // return
+
     try {
       setIsSubmitting(true);
 
-      const response = await fetch('https://olaniyi.pythonanywhere.com/api/posts/', {
+      const response = await fetch('https://olaniyijoe.pythonanywhere.com/api/posts/', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -56,7 +49,6 @@ function CreatePost() {
         console.log("Response data:", data);
         setTitle('');
         setContent('');
-        setProfileImage(null);
       } else {
         const errorData = await response.json();
         alert(`Error: ${errorData.message || 'Failed to create post.'}`);
@@ -102,9 +94,9 @@ function CreatePost() {
 
 
             <div className='flex gap-[8rem] my-10 lg:my-5 justify-center'>
-              <div className='flex gap-5'>
+              {/* <div className='flex gap-5'>
                 <img src="./src/assets/edit-circle-outline.svg" alt="" />
-              </div>
+              </div> */}
               <button
                   type='submit'
                   className={`bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl mt-4 ${isSubmitting ? "opacity-50" : ""}`}
