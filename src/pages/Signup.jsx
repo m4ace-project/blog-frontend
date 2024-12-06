@@ -35,7 +35,7 @@ function SignUp() {
             role: "reader"
         }
 
-        axios.post("https://olaniyi.pythonanywhere.com/api/register/",
+        axios.post("https://olaniyijoe.pythonanywhere.com/api/register/",
             {
                 email: email,
                 password: password,

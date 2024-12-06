@@ -35,7 +35,7 @@ function Inbox() {
         const otpCode = otp.join(""); 
 
         try {
-            const response = await axios.post("https://olaniyi.pythonanywhere.com/api/verify-email/", {
+            const response = await axios.post("https://olaniyijoe.pythonanywhere.com/api/verify-email/", {
                 otp: otpCode,
             });
 
