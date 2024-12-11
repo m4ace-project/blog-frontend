@@ -20,23 +20,12 @@ function AboutYou() {
     
     console.log(profilePicture);
     
-    // const data = new FormData();
-
-    const url = 'https://olaniyi.pythonanywhere.com/api/content-creator/profile/create/';
+      const url = 'https://olaniyijoe.pythonanywhere.com/api/content-creator/profile/create/';
     
     const token = localStorage.getItem('token');
 
     console.log(token);
     
-
-    // data.append('name', name);
-    // data.append('username', username);
-    // data.append('bio', bio);
-    // if (profilePicture) {
-    //   data.append('profile_picture', profilePicture);
-    // }
-
-
     const data = {
       name: name,
       username: username,

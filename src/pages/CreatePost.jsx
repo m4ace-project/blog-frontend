@@ -1,69 +1,62 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Widget from '../components/common/Widget';
-import PostHeader from '../components/pages/post/PostHeader';
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Editor from "../components/common/Editor";
+import Widget from "../components/common/Widget";
+import PostHeader from "../components/pages/post/PostHeader";
+import PostCategory from "../components/common/PostCategory";
 
 
 function CreatePost() {
 
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const editorRef = useRef(null);
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("none");
+  const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    // console.log("Post Details:", { title, content });
+    // console.log(editorRef.current);
+    
+    const token = localStorage.getItem('token');
 
-    // if (!title || !content) {
-    //   alert("Please fill in both the title and content fields.");
-    //   return;
-    // }
-  
-    const token = localStorage.getItem('token'); 
+    console.log(token);
+
+    
     if (!token) {
-      alert("You need to log in first!");
+      alert("User not authenticated. Please log in.");
+      setLoading(false);
       return;
-    }
+    };
 
-
-    // console.log(handleSubmit)
-
-    // return
-
-    try {
-      setIsSubmitting(true);
-
-      const response = await fetch('https://olaniyijoe.pythonanywhere.com/api/posts/', {
-        method: 'POST',
+  try {
+      const response = await axios.post("https://olaniyijoe.pythonanywhere.com/api/posts/",
+        {
+          title: title,
+          content: content,
+          category: category,
+        },
+      {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        body: {
-          title: title,
-          content: content,
-        }
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        alert("Post created successfully!");
-        console.log("Response data:", data);
-        setTitle('');
-        setContent('');
-      } else {
-        const errorData = await response.json();
-        alert(`Error: ${errorData.message || 'Failed to create post.'}`);
       }
-    } catch (error) {
-      console.error("Error creating post:", error);
-      alert("An error occurred. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    );
 
 
-
-
+    alert("Post created successfully!");
+    console.log(response.data);
+  
+  } catch (error) {
+    console.error("Error creating post:", error);
+    alert("Failed to create the post. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
 
   return (
@@ -76,33 +69,30 @@ function CreatePost() {
         <div className='mx-14 lg:flex lg:gap-[5rem] mt-5 lg:mx-10'>
           <div className='lg:w-[45%] mb-14 md:mb-0'>
             <form onSubmit={handleSubmit} className='w-full'>
+            <h2 className="mb-3 font-semibold">POST TITLE</h2>
             <input 
             type="text" 
             name="Title" 
             placeholder='Title'
             value={title}
-            onChange={(e) => setTitle(e.target.value)} 
-            className='bg-white h-10 rounded-[1rem]  w-full mb-5 ps-5' 
+            onChange={(e) => setTitle(e.target.value)}
+            className='bg-white h-10 border-2  w-full mb-5 ps-5' 
             />
             <br/>
-            <textarea 
-              placeholder='Text'
-              value={content}
-              onChange={(e) => setContent(e.target.value)} 
-              className='bg-white h-[7rem] lg:h-[7rem] rounded-[1rem] w-full p-5'
-              />
 
-
+            <div className="mb-5">
+            <h2 className="mb-3 font-semibold">BLOG BODY CONTENT</h2>
+            < Editor editorRef={editorRef} onChange={(data) => {setContent(data)}} />
+            </div>
+            <h2 className="mb-3 font-semibold">SELECT A CATEGORY</h2>
+            <PostCategory onCategoryChange={setCategory} />      
             <div className='flex gap-[8rem] my-10 lg:my-5 justify-center'>
-              {/* <div className='flex gap-5'>
-                <img src="./src/assets/edit-circle-outline.svg" alt="" />
-              </div> */}
-              <button
-                  type='submit'
-                  className={`bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl mt-4 ${isSubmitting ? "opacity-50" : ""}`}
-                  disabled={isSubmitting}
+            <button
+                  type="submit"
+                  className="bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl mt-4"
+                  disabled={loading}
                 >
-                  {isSubmitting ? "Publishing..." : "Publish"}
+                  {loading ? "Publishing..." : "Publish"}
                 </button>
             </div>
             </form>
