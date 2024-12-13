@@ -5,6 +5,8 @@ import Editor from "../components/common/Editor";
 import Widget from "../components/common/Widget";
 import PostHeader from "../components/pages/post/PostHeader";
 import PostCategory from "../components/common/PostCategory";
+import TopPost from "../components/pages/post/TopPost";
+import { toast, ToastContainer } from "react-toastify";
 
 
 function CreatePost() {
@@ -13,6 +15,7 @@ function CreatePost() {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("none");
   const [content, setContent] = useState("");
+  const [blogPicture, setBlogPicture] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -38,17 +41,19 @@ function CreatePost() {
           title: title,
           content: content,
           category: category,
+          blog_pic: blogPicture,
         },
       {
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
         },
       }
     );
 
 
-    alert("Post created successfully!");
-    console.log(response.data);
+    toast.success("Post created successfully!");
+    window.location.reload();
   
   } catch (error) {
     console.error("Error creating post:", error);
@@ -60,7 +65,8 @@ function CreatePost() {
 
 
   return (
-    <div className='bg-[#FFFCD8] h-[100vh] md:flex'>
+    <div className='bg-[#FFFCD8] min-h-max md:flex'>
+      <ToastContainer/>
       <div className='md:w-[20%]'>
           <Widget />
       </div>
@@ -78,14 +84,20 @@ function CreatePost() {
             onChange={(e) => setTitle(e.target.value)}
             className='bg-white h-10 border-2  w-full mb-5 ps-5' 
             />
+            <h2 className="mb-3 font-semibold">POST IMAGE</h2>
+            <input
+                type="file"
+                id="blogPicture"
+                name="blogPicture"
+                onChange={(e) => setBlogPicture(e.target.files[0])} className="mb-5"/>
             <br/>
-
+            <h2 className="mb-3 font-semibold">SELECT A CATEGORY</h2>
+            <PostCategory onCategoryChange={setCategory} />
             <div className="mb-5">
             <h2 className="mb-3 font-semibold">BLOG BODY CONTENT</h2>
             < Editor editorRef={editorRef} onChange={(data) => {setContent(data)}} />
             </div>
-            <h2 className="mb-3 font-semibold">SELECT A CATEGORY</h2>
-            <PostCategory onCategoryChange={setCategory} />      
+                  
             <div className='flex gap-[8rem] my-10 lg:my-5 justify-center'>
             <button
                   type="submit"
@@ -113,28 +125,7 @@ function CreatePost() {
           </div>
           </div>
           <div className='ml-10 lg:w-[45%]'>
-            <div className='bg-white md:w-[72%] h-[6rem] rounded-[1rem] mb-14 lg:mb-4 p-3'>
-              <div className='flex gap-4 mb-2'>
-                <button className='bg-[#FF5722] text-white w-[8rem] h-[2rem] rounded-xl'>Last 7 Days</button>
-                <p>Last 30 Days</p>
-                <p>All</p>
-              </div>
-              <div className='flex gap-3'>
-                <p>Shares</p>
-                <img src="./src/assets/share-outlined.svg" alt="" />
-                <p>O</p>
-              </div>
-            </div>
-            <div className='text-[#001F54]'>
-              <h5 className='font-bold text-center mb-8 text-3xl lg:text-lg lg:mb-3'>Top Posts</h5>
-              <p>Drama as popular comedian, Osama berates Rhythm FM & OAP David King on live Radio</p>
-              <p className='my-6 lg:my-2'>You Have to See Nini Singh’s Style Delivery at London Fashion Week</p>
-              <p>FG Unveils Schedule For 2024 Independence Day Celebration</p>
-              <p className='my-6 lg:my-2'>#BNxBBNaija9: Handi, Shaun & Tjay Evicted in Triple Exit | Highlights You Missed</p>
-              <p>HerMoneyHerPower: Funke Akindele Shares How “Jenifa’s Diary” Came To Life by a Woman’s Support</p>
-              <p className='my-6 lg:my-2'>Crypto Market Making : Basics That You Need to Know</p>
-              <p>How to Achieve the Quiet Luxury Trend … </p>
-            </div>
+            <TopPost />
           </div>
         </div>
       </div>

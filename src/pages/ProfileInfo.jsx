@@ -19,7 +19,7 @@ function ProfileInfo() {
     
     console.log(profilePicture);
 
-    const url = 'https://olaniyi.pythonanywhere.com/api/reader/profile/create/';
+    const url = 'https://olaniyijoe.pythonanywhere.com/api/reader/profile/create/';
     
     const token = localStorage.getItem('token');
 

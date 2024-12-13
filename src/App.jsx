@@ -16,7 +16,7 @@ import Check from './pages/Check';
 import Whatsapp from './pages/Whatsapp';
 import Login from './pages/Login';
 import Find from './pages/Find';
-import Travel from './pages/Travel';
+import Authors from './pages/Authors';
 import HomeDiy from './pages/HomeDiy';
 import Tech from './pages/Tech';
 import Personalfinance from './pages/Personalfinance';
@@ -61,7 +61,7 @@ function App() {
         <Route path="/whatsapp" element={ <Whatsapp /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/find" element={ <Find /> } />
-        <Route path="/travel" element={ <Travel /> } />
+        <Route path="/authors/:id" element={ <Authors /> } />
         <Route path="/games" element={ <Games /> } />
         <Route path="/food" element={ <Food /> } />
         <Route path="/fitness" element={ <Fitness /> } />
