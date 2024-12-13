@@ -21,16 +21,11 @@ function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // console.log("Post Details:", { title, content });
-    // console.log(editorRef.current);
     
     const token = localStorage.getItem('token');
-
-    console.log(token);
-
     
     if (!token) {
-      alert("User not authenticated. Please log in.");
+      toast.error("User not authenticated. Please log in.");
       setLoading(false);
       return;
     };
@@ -57,7 +52,7 @@ function CreatePost() {
   
   } catch (error) {
     console.error("Error creating post:", error);
-    alert("Failed to create the post. Please try again.");
+    toast.error("Failed to create the post. Please try again.");
   } finally {
     setLoading(false);
   }

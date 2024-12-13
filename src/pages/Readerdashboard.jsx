@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NavbarReader from '/src/components/common/NavbarReader';
 import FooterReader from '/src/components/common/FooterReader';
 import MessageIcon from'../assets/messages.png';
+import { toast, ToastContainer } from 'react-toastify';
 
 function ReaderDashboard() {
 
@@ -14,7 +15,7 @@ function ReaderDashboard() {
     const fetchPosts = async () => {
       const token = localStorage.getItem('token');
       if (!token) {
-        setError('Authorization token not found in local storage.');
+        toast.error('Authorization token not found in local storage.');
         setLoading(false);
         return;
       }
@@ -34,7 +35,7 @@ function ReaderDashboard() {
         setPosts(data);
         setLoading(false);
       } catch (err) {
-        setError(err.message);
+        toast.error(err.message);
         setLoading(false);
       }
     };
@@ -45,6 +46,7 @@ function ReaderDashboard() {
 
   return (
     <div className="bg-[#FFFCD8] min-h-screen">
+      <ToastContainer/>
       <NavbarReader />
       <div className="max-w-8xl mx-auto px-4 py-8">
 

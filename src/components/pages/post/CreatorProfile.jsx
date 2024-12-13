@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
 
 function CreatorProfile() {
 
@@ -14,8 +15,6 @@ function CreatorProfile() {
    
     const handleSubmit = async (e) => {
       e.preventDefault();
-      
-      console.log(profilePicture);
       
         const url = 'https://olaniyijoe.pythonanywhere.com/api/content-creator/profile/create/';
       
@@ -35,12 +34,12 @@ function CreatorProfile() {
             'Content-Type': 'multipart/form-data',
           },
         });
-        console.log('Profile created successfully:', response.data);
-        alert('Profile created successfully!');
+        toast.success('Profile created successfully:', response.data);
+        toast.success('Profile created successfully!');
         navigate('/createpost');
       } catch (error) {
-        console.error('Error creating profile:', error);
-        alert('Failed to create profile. Please try again.');
+        toast.error('Error creating profile:', error);
+        toast.error('Failed to create profile. Please try again.');
       }
     };
   
@@ -50,6 +49,7 @@ function CreatorProfile() {
     return (
       <div className=''>
         <div className='bg-white lg:w-[100%] mx-14 lg:mx-0 px-5 mt-10 pb-14 lg:pb-0 lg:mt-0 pt-5'>
+          <ToastContainer/>
               <div className='md:flex md:justify-between md:gap-5 mb-8'>
                 <h5 className='text-[#001F54] font-bold text-xl flex items-center'>Profile information</h5>
                 
