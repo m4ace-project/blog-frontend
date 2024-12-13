@@ -17,10 +17,10 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
   }
 }
 
-#  resource "aws_s3_bucket_acl" "bucket_acl" {
-#      bucket = aws_s3_bucket.m-trend-app.id
-#      acl    = "public-read"
-#  }
+ resource "aws_s3_bucket_acl" "bucket_acl" {
+     bucket = aws_s3_bucket.m-trend-app.id
+     acl    = "public-read"
+ }
 
 resource "aws_s3_bucket_public_access_block" "m-trend-app-public_access" {
     bucket = aws_s3_bucket.m-trend-app.id
@@ -92,12 +92,12 @@ resource "aws_s3_bucket_policy" "bucket_policy2" {
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::332329932852:user/Whiz_User_204188.89222875"
+        "AWS": "*"
       },
       "Action": "s3:*",
       "Resource": [
-        "arn:aws:s3:::m-trend-app",
-        "arn:aws:s3:::m-trend-app/*"
+        "arn:aws:s3:::${var.bucket_name}",
+        "arn:aws:s3:::${var.bucket_name}/*"
       ]
     }
   ]
