@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import Frame198 from '../assets/Frame 198.png';
 import Vector from '../assets/Vector.png';
 import Frame6 from '../assets/Frame 6.png';
-// import Frame84 from '../assets/Frame84.png';
-// import Frame85 from '../assets/Frame 85.png';
-// import Frame86 from '../assets/Frame 86.png';
-// import Frame87 from '../assets/Frame 87.png';
 import OrangeBackground from '../assets/orange.jpeg';
 import SearchIcon from '../assets/search-normal.png';
 
