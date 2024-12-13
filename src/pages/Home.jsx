@@ -1,17 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Frame198 from '../assets/Frame 198.png';
 import Vector from '../assets/Vector.png';
 import Frame6 from '../assets/Frame 6.png';
-import Frame84 from '../assets/Frame84.png';
-import Frame85 from '../assets/Frame 85.png';
-import Frame86 from '../assets/Frame 86.png';
-import Frame87 from '../assets/Frame 87.png';
+// import Frame84 from '../assets/Frame84.png';
+// import Frame85 from '../assets/Frame 85.png';
+// import Frame86 from '../assets/Frame 86.png';
+// import Frame87 from '../assets/Frame 87.png';
 import OrangeBackground from '../assets/orange.jpeg';
 import SearchIcon from '../assets/search-normal.png';
 
 const Home = () => {
-  const [menuOpen, setMenuOpen] = useState(false); 
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('https://olaniyijoe.pythonanywhere.com/api/postview/');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setPosts(data); 
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+    fetchPosts();
+  }, []);
+  
+  
+
   return (
     <div>
       <div
@@ -106,7 +131,7 @@ const Home = () => {
                 className="w-full ml-3 md:h-96 object-cover mx-auto"/>
             </div>
           </div>
-          <div className="flex flex-wrap">
+          {/* <div className="flex flex-wrap">
             {[Frame84, Frame85, Frame86, Frame87].map((image, index) => (
               <div key={index} className="w-full md:w-1/2 lg:w-1/4 p-1">
                 <img
@@ -124,6 +149,26 @@ const Home = () => {
                 </p>
               </div>
             ))}
+          </div> */}
+          <div className="flex flex-wrap mt-4">
+            {loading ? (
+              <p className="text-center w-full text-[#001F54] font-medium">Loading...</p>
+            ) : error ? (
+              <p className="text-center w-full text-red-500 font-medium">{error}</p>
+            ) : (
+              posts.map((post, index) => (
+                <div key={index} className="w-full md:w-1/2 lg:w-1/4 p-2">
+                  <img
+                    src={post.blog_pic}
+                    alt={`Post ${index + 1}`}
+                    className="w-full h-40 object-cover rounded-md"
+                  />
+                  <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
+                    {post.title}
+                  </p>
+                </div>
+              ))
+            )}
           </div>
         </main>
           <footer className="bg-[#FFFFFF] text-[#001F54] font-inter font-medium text-sm md:text-lg lg:text-xl p-2 md:p-4 text-center whitespace-nowrap">
