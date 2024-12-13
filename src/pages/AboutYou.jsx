@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Widget from '../components/common/Widget';
 import PostHeader from '../components/pages/post/PostHeader';
 import CreatorProfile from '../components/pages/post/CreatorProfile';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 function AboutYou() {
@@ -12,12 +13,13 @@ function AboutYou() {
   const [profileImage, setProfileImage] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isProfileAvailable, setIsProfileAvailable] = useState(false);
 
   useEffect(() => {
     const fetchProfile = async () => {
       const token = localStorage.getItem('token'); 
       if (!token) {
-        setError('Authorization token is missing');
+        toast.error('Authorization token is missing');
         setLoading(false);
         return;
       }
@@ -30,17 +32,19 @@ function AboutYou() {
           }
         });
 
-        if (!response.ok) {
+        if (response.status === 404) {
+          setIsProfileAvailable(false);
+        } else if (!response.ok) {
           throw new Error('Failed to fetch profile');
-        }
-
+        } else {
         const data = await response.json();
         setName(data.name);
         setUsername(data.username);
         setBio(data.bio);
         setProfileImage(data.profile_pic);
+        }
       } catch (error) {
-        setError(error.message);
+        toast.error(error.message);
       } finally {
         setLoading(false);
       }
@@ -50,12 +54,13 @@ function AboutYou() {
   }, []); 
 
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   return (
     <div className='bg-[#FFFCD8] h-[100vh] md:flex'>
+      <ToastContainer/>
       <div className='md:w-[20%]'>
           <Widget />
       </div>
@@ -72,7 +77,6 @@ function AboutYou() {
               </div> */}
             </div>
             <div className='bg-white w-full h-[8rem] rounded-2xl p-5 mt-8 space-y-4'>
-              {/* <h5 className='flex justify-center items-center pt-8 font-bold'>Texts</h5> */}
             <div className='flex'>
               <div className='flex justify-center items-center mr-5'>
               <img
