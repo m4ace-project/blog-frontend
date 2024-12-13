@@ -21,17 +21,21 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: 18
+                  node-version: 20
 
-            - name: Install Yarn
-              run: npm install -g yarn
+            # - name: Install Yarn
+            #   run: npm install -g yarn
 
-            - name: Install dependencies
-              run: yarn install --frozen-lockfile
+            # - name: Install dependencies
+            #   run: yarn install --frozen-lockfile
 
+            # - name: Build
+            #   run: yarn build
+            - name: Install dependencies Build
+              run: npm install
             - name: Build
-              run: yarn build
-
+              run: npm run build
+              
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v1
               with:
