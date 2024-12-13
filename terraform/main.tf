@@ -150,7 +150,7 @@ resource "aws_s3_bucket_website_configuration" "bucket_hosting_config" {
 #   # Optional: Specify file content directly (useful for dynamic files)
 #   content = each.value.content
 
-#   # Ensure S3 object integrity using the MD5 checksum
+#  ## # Ensure S3 object integrity using the MD5 checksum
 #   etag = each.value.digests.md5
 # }
 
@@ -158,7 +158,7 @@ resource "aws_s3_bucket_website_configuration" "bucket_hosting_config" {
 # resource "aws_iam_role_policy_attachment" "attach_s3_policy" {
 #   role       = aws_iam_role.iam-role.name
 #   policy_arn = aws_iam_policy.s3_policy.arn
-# }
+# }ss
 
 
 
