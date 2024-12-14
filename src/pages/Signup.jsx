@@ -36,9 +36,9 @@ function SignUp() {
             })
           .then(function (response) {
             console.log(response);
-            
+                       
             // setShowAlert(true)
-            toast.error(response.data.email[0])
+            // toast.error(response.data.email[0]);
             navigate("/inbox");
           })
           .catch(function (error) {
