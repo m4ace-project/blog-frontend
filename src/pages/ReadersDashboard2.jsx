@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { toast, ToastContainer } from "react-toastify";
+import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import NavbarReader from '/src/components/common/NavbarReader';
 import FooterReader from '/src/components/common/FooterReader';
@@ -16,8 +18,48 @@ import Vector5 from'../assets/Vector (5).png';
 import Vector7 from'../assets/Vector (7).png';
 import Vector9 from'../assets/Vector (9).png';
 function ReadersDashboard2() {
+
+  const {id} = useParams();
+  const [post, setPost] = useState();
+
+
+    useEffect(() => {
+      const fetchAuthors = async () => {
+        const token = localStorage.getItem('token');
+        try {
+          
+          const response = await fetch(`https://olaniyijoe.pythonanywhere.com/api/categories/${id}/top-authors/`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+  
+          if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+  
+          const data = await response.json();
+          setPost(data);
+          console.log(data);
+  
+          if (data.length === 0) {
+            toast.error('No Post available.')
+          };
+          
+        } catch (err) {
+          setError(err.message);
+        } 
+      };
+  
+  
+      fetchAuthors();
+    }, []);
+
+
+
     return (
       <div className="bg-[#FFFCD8] min-h-screen">
+        <ToastContainer />
         <NavbarReader />
       <div className="px-3  mt-2 text-[#001F54] font-inter font-medium text-sm w-full">
         <div className="flex justify-between w-full">

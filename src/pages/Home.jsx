@@ -5,6 +5,7 @@ import Vector from '../assets/Vector.png';
 import Frame6 from '../assets/Frame 6.png';
 import OrangeBackground from '../assets/orange.jpeg';
 import SearchIcon from '../assets/search-normal.png';
+import PlaceHolder from '../assets/placeholder.gif'
 import { toast, ToastContainer } from 'react-toastify';
 
 const Home = () => {
@@ -23,6 +24,9 @@ const Home = () => {
         }
         const data = await response.json();
         setPosts(data); 
+console.log(data);
+
+        
         setLoading(false);
       } catch (err) {
         toast.error(err.message);
@@ -129,25 +133,6 @@ const Home = () => {
                 className="w-full ml-3 md:h-96 object-cover mx-auto"/>
             </div>
           </div>
-          {/* <div className="flex flex-wrap">
-            {[Frame84, Frame85, Frame86, Frame87].map((image, index) => (
-              <div key={index} className="w-full md:w-1/2 lg:w-1/4 p-1">
-                <img
-                  src={image}
-                  alt={`Highlight ${index + 1}`}
-                  className="w-full"/>
-                <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
-                  {index === 0
-                    ? 'The Ladies are back! Season 2 of “The Smart Money Woman” returns with more drama'
-                    : index === 1
-                    ? 'Governorship Candidate Withdraws Few Hours to Edo Election'
-                    : index === 2
-                    ? 'Google Hit With Massive Fine Threat by UK Regulators'
-                    : 'Greenbox Commitment to Public Health'}
-                </p>
-              </div>
-            ))}
-          </div> */}
           <div className="flex flex-wrap ml-14 my-4">
             {loading ? (
               <p className="text-center w-full text-[#001F54] font-medium">Loading...</p>
@@ -155,16 +140,17 @@ const Home = () => {
               <p className="text-center w-full text-red-500 font-medium">{error}</p>
             ) : (
               posts.map((post, index) => (
-                <div key={index} className="w-full md:w-1/2 lg:w-1/4 p-2">
-                  <img
-                    src={post.blog_pic}
-                    alt={`Post ${index + 1}`}
-                    className="w-full h-40 object-cover rounded-md"
-                  />
+                
+                <Link to={`/readersdashboard2/${post.post_id}`} key={index} className="w-full md:w-1/2 lg:w-1/4 p-2">
+                 <img
+                  src={PlaceHolder}
+                  alt={'img'}
+                  className="w-full h-40 object-cover rounded-md"
+                />
                   <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
                     {post.title}
                   </p>
-                </div>
+                </Link>
               ))
             )}
           </div>

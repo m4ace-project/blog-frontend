@@ -38,10 +38,10 @@ function AboutYou() {
           throw new Error('Failed to fetch profile');
         } else {
         const data = await response.json();
-        setName(data.name);
-        setUsername(data.username);
-        setBio(data.bio);
-        setProfileImage(data.profile_pic);
+        setName(data?.name);
+        setUsername(data?.username);
+        setBio(data?.bio);
+        setProfileImage(data?.profile_pic);
         }
       } catch (error) {
         toast.error(error.message);

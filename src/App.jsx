@@ -78,7 +78,7 @@ function App() {
         <Route path="/profileinfo" element={ <ProfileInfo/> } />
         <Route path="/chat" element={ <Chat/> } />
         <Route path="/readerdashboard" element={ <ReaderDashboard/> } />
-        <Route path="/readersdashboard2" element={ <ReadersDashboard2/> } />
+        <Route path="/readersdashboard2/:id" element={ <ReadersDashboard2/> } />
         <Route path="/admin" element={ <Admin/> } />
       </Routes>
     </>

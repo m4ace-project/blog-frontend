@@ -35,12 +35,14 @@ function SignUp() {
                 role: state.role
             })
           .then(function (response) {
-            toast.error(response);
+            console.log(response);
+            
             // setShowAlert(true)
-            toast.error(response.data.message)
+            toast.error(response.data.email[0])
             navigate("/inbox");
           })
           .catch(function (error) {
+            console.log(error);
             toast.error(error);
             setIsLoading(false)
           }).finally(()=>{

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavbarReader from '/src/components/common/NavbarReader';
 import FooterReader from '/src/components/common/FooterReader';
+import PlaceHolder from '../assets/placeholder.gif'
 import MessageIcon from'../assets/messages.png';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -57,11 +58,16 @@ function ReaderDashboard() {
       {posts.length > 0 && (
           <div className="mb-6">
             <Link to={`/post/${posts[0].id}`}>
-              <img
+              {/* <img
                 src={posts[0].blog_pic}
                 alt={posts[0].title}
                 className="w-full rounded-lg"
-              />
+              /> */}
+              <img
+                  src={PlaceHolder}
+                  alt={`Post ${index + 1}`}
+                  className="w-full h-40 object-cover rounded-md"
+                />
               <h2 className="text-xl md:text-2xl font-bold mt-2">{posts[0].title}</h2>
             </Link>
           </div>
@@ -74,10 +80,10 @@ function ReaderDashboard() {
           {posts.slice(1).map((post, index) => (
             <div key={post.id} className="w-full sm:w-1/2 lg:w-1/4 px-1 mb-4">
               <img
-                src={post.blog_pic} 
-                alt={post.title}
-                className="w-full rounded-lg"
-              />
+                                src={PlaceHolder}
+                                alt={'img'}
+                                className="w-full h-40 object-cover rounded-md"
+                              />
               <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">{post.title}</p>
             </div>
           ))}
