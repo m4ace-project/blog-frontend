@@ -28,7 +28,7 @@ function ReadersDashboard2() {
         const token = localStorage.getItem('token');
         try {
           
-          const response = await fetch(`https://olaniyijoe.pythonanywhere.com/api/categories/${id}/top-authors/`, {
+          const response = await fetch(`https://olaniyijoe.pythonanywhere.com/api/posts/${id}`, {
             headers: {
               'Authorization': `Bearer ${token}`
             }
@@ -62,12 +62,21 @@ function ReadersDashboard2() {
         <ToastContainer />
         <NavbarReader />
       <div className="px-3  mt-2 text-[#001F54] font-inter font-medium text-sm w-full">
-        <div className="flex justify-between w-full">
+        {/* <div className="flex justify-between w-full">
         <p>Monday, May 20 2024</p>
         <p className="mx-auto">Food & Cooking</p>
         <p>Tomi Makanjuola</p>
-        </div>
+        </div> */}
       </div>
+
+      {posts.map( (post) => (
+            <Checkbox 
+            key={author.id}
+            text={author.author_name} 
+            id={author.id}
+            onChange={() => handleCheckboxChange(author.id)}
+            />
+            ))}
     <div className="w-full items-center justify-center">
        <h1 className="mt-2 text-[#001F54] font-inter font-medium text-xl text-center">
         Vegan Parenting Tips: Raising Children on a Plant-Based Diet

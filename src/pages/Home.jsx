@@ -133,7 +133,7 @@ console.log(data);
                 className="w-full ml-3 md:h-96 object-cover mx-auto"/>
             </div>
           </div>
-          <div className="flex flex-wrap ml-14 my-4">
+          <div className="flex flex-wrap ml-10 my-4">
             {loading ? (
               <p className="text-center w-full text-[#001F54] font-medium">Loading...</p>
             ) : error ? (
@@ -155,10 +155,10 @@ console.log(data);
             )}
           </div>
         </main>
+      </div>
           <footer className="bg-[#FFFFFF] text-[#001F54] font-inter font-medium text-sm md:text-lg lg:text-xl p-2 md:p-4 text-center whitespace-nowrap">
           <p>Copyright &copy; Mentorship For Acceleration 2024. All Rights Reserved</p>
         </footer>
-      </div>
     </div>
   );
 };

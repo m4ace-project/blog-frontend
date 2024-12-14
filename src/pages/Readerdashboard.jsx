@@ -65,7 +65,6 @@ function ReaderDashboard() {
               /> */}
               <img
                   src={PlaceHolder}
-                  alt={`Post ${index + 1}`}
                   className="w-full h-40 object-cover rounded-md"
                 />
               <h2 className="text-xl md:text-2xl font-bold mt-2">{posts[0].title}</h2>
@@ -80,10 +79,9 @@ function ReaderDashboard() {
           {posts.slice(1).map((post, index) => (
             <div key={post.id} className="w-full sm:w-1/2 lg:w-1/4 px-1 mb-4">
               <img
-                                src={PlaceHolder}
-                                alt={'img'}
-                                className="w-full h-40 object-cover rounded-md"
-                              />
+                  src={PlaceHolder}
+                  className="w-full h-40 object-cover rounded-md"
+                />
               <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">{post.title}</p>
             </div>
           ))}
