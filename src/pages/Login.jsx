@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 function Login() {
@@ -38,10 +39,7 @@ function Login() {
       }
 
       const data = await response.json();
-      console.log(data);
   
-      // const { access_token, role, email, id } = data;
-
       localStorage.setItem('token', data.access_token);
 
       if (data.role === "content_creator") {
@@ -59,8 +57,8 @@ function Login() {
       } 
 
     } catch (err) {
-      console.log(err);
-      setError(err.message);
+      toast.error(err);
+      toast.error(err.message);
     } finally {
       setLoading(false);
     }
@@ -73,6 +71,7 @@ function Login() {
 
   return (
     <div className="bg-[#FFFCD8] h-[100vh]">
+      <ToastContainer/>
   <div>
     <img className="w-11 pt-2 ml-2" src="./src/assets/Frame 199.png" alt="" />
   </div>
@@ -103,7 +102,7 @@ function Login() {
     </button>
     </div>
     </form>
-    {error && <p className="text-red-500 text-center mt-3">{error}</p>}
+    {/* {error && <p className="text-red-500 text-center mt-3">{error}</p>} */}
   </div> 
     </div>
   )

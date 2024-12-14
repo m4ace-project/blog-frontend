@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ProfileIcon from '../assets/profile.png'; 
+import { toast, ToastContainer } from 'react-toastify';
 
 function ProfileInfo() {
 
@@ -40,12 +41,12 @@ function ProfileInfo() {
             'Content-Type': 'multipart/form-data',
             },
             });
-            console.log('Profile created successfully:', response.data);
-            alert('Profile created successfully!');
+            toast.success('Profile created successfully:', response.data);
+            toast.success('Profile created successfully!');
             navigate('/personalization');
         } catch (error) {
-            console.error('Error creating profile:', error);
-            alert('Failed to create profile. Please try again.');
+            toast.error('Error creating profile:', error);
+            toast.error('Failed to create profile. Please try again.');
         }
     };
 
@@ -53,6 +54,7 @@ function ProfileInfo() {
 
     return (
         <div className="bg-[#F8F8F8] min-h-screen flex items-center justify-center">
+            <ToastContainer/>
             <div className="bg-white w-full max-w-md p-8 rounded-lg shadow-lg">
                 <div className=" flex mb-8">
                     <div className="text-2xl font-semibold text-[#001F54] mt-14">Profile Information</div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer'
 import { Link } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify';
 
 
 function Personalization() {
@@ -23,10 +24,9 @@ function Personalization() {
 
         const data = await response.json();
         setCategories(data);
-        console.log(data);
         
       } catch (err) {
-        setError(err.message);
+        toast.error(err.message);
       } 
     };
 
@@ -37,6 +37,7 @@ function Personalization() {
 
   return (
     <div>
+      <ToastContainer/>
       <div className='bg-[#FFFCD8] h-[100vh] flex flex-col  justify-center items-center'>
       <div className=' bg-white w-[100vw] -mt-24'>
         <Navbar/>

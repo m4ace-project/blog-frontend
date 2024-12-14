@@ -73,7 +73,7 @@ function Travel() {
 
       toast.success('Favorite authors submitted successfully!');
       setSelectedAuthors([]);
-      navigate('/reader-dashboard');
+      navigate('/readerdashboard');
     } catch (err) {
       toast.error('Failed to submit favorite authors.');
     }

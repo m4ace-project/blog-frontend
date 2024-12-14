@@ -5,9 +5,10 @@ import GoogleIcon from '../assets/google.png';
 import FacebookIcon from '../assets/facebook.png';
 import {baseUrl} from '../utils/url'
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
 
 function SignUp() {
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [cursor, setCursor] = useState(true)
@@ -17,8 +18,6 @@ function SignUp() {
     const url = `https://m4aceblog.onrender.com/register`
     const navigate = useNavigate();
     let { state } = useLocation();
-
-    console.log(state);
     
     if (email != '' && password != ''){
         () => setCursor(false)
@@ -26,14 +25,7 @@ function SignUp() {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log('clicked')
         setIsLoading(true)
-        const details =  {
-            email: email,
-            password: password,
-            password2: password,
-            role: "reader"
-        }
 
         axios.post("https://olaniyijoe.pythonanywhere.com/api/register/",
             {
@@ -43,31 +35,17 @@ function SignUp() {
                 role: state.role
             })
           .then(function (response) {
-            console.log(response);
-            setShowAlert(true)
-            setAlert(response.data.message)
+            toast.error(response);
+            // setShowAlert(true)
+            toast.error(response.data.message)
             navigate("/inbox");
           })
           .catch(function (error) {
-            console.log(error);
+            toast.error(error);
             setIsLoading(false)
           }).finally(()=>{
-            // setIsLoading(false)
+            setIsLoading(false)
           });
-
-        // fetch(url, {
-        //     method: "POST",
-           
-        // }).then((res)=>{
-        //     let response =  res.json()
-        //     return response
-        // }).then((response)=>{
-        //     setShowAlert(true)
-        //     setAlert(response.detail)
-        //     console.log(response)  
-        
-        // }          
-        // )
         
     }
 
@@ -78,6 +56,7 @@ function SignUp() {
     }, [showAlert])
     return (
         <div className="bg-[#FFFCD8] min-h-screen">
+            <ToastContainer/>
               <img src={Frame199} alt="logo" className="h-12 w-auto pt-2 ml-3" />
             <div className="w-full max-w-md mx-auto p-6 rounded-md mt-7 items-center justify-center">
                 {

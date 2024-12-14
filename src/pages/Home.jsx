@@ -5,6 +5,7 @@ import Vector from '../assets/Vector.png';
 import Frame6 from '../assets/Frame 6.png';
 import OrangeBackground from '../assets/orange.jpeg';
 import SearchIcon from '../assets/search-normal.png';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Home = () => {
 
@@ -24,7 +25,7 @@ const Home = () => {
         setPosts(data); 
         setLoading(false);
       } catch (err) {
-        setError(err.message);
+        toast.error(err.message);
         setLoading(false);
       }
     };
@@ -38,6 +39,7 @@ const Home = () => {
       <div
         className="bg-cover bg-fixed h-screen w-full overflow-x-hidden bg-right-bottom"
         style={{ backgroundImage: `url(${OrangeBackground})` }}>
+          <ToastContainer/>
         <nav className="bg-[#FFFFFF] p-4">
           <div className="max-w-7xl mx-auto px-2">
             <div className="flex items-center justify-between flex-wrap">
@@ -146,7 +148,7 @@ const Home = () => {
               </div>
             ))}
           </div> */}
-          <div className="flex flex-wrap mt-4">
+          <div className="flex flex-wrap ml-14 my-4">
             {loading ? (
               <p className="text-center w-full text-[#001F54] font-medium">Loading...</p>
             ) : error ? (
