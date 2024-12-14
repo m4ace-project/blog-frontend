@@ -44,6 +44,7 @@ jobs:
                   aws-region: us-east-1
 
             - name: Deploy to S3
-              run: aws s3 sync ./dist s3://m-trend-app-123 --acl public-read
+              run: aws s3 sync ./dist s3://m-trend-apps --acl public-read
+
 
             
