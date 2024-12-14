@@ -11,7 +11,7 @@ variable "environment" {
 
 variable "bucket_name" {
   description = "This is the frontend application name"
-  default = "m-trend-app-111"
+  default = "m-trend-apps"
 }
 
  
