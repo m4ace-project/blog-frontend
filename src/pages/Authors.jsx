@@ -4,7 +4,7 @@ import Navbar from '../components/common/Navbar'
 import Checkbox from '../components/pages/Checkbox'
 import Suggest from '../components/common/Suggest'
 import Footer from '../components/common/Footer'
-import { useLocation, useParams, useNavigate } from 'react-router-dom'
+import { useLocation, useParams, useNavigate, Link } from 'react-router-dom'
 
 function Travel() {
   const {id} = useParams();
@@ -89,13 +89,17 @@ function Travel() {
       <div className=' bg-white w-[100vw] -mt-24'>
         <Navbar/>
       </div>
-      <div className='text-[#001F54] bg-white mt-5 h-[70vh] w-[60vw] flex flex-col justify-center 
+      <div className='relative text-[#001F54] bg-white mt-5 h-[70vh] w-[60vw] flex flex-col justify-center 
                 border-b-[1.5px] border-x-[1px] shadow-md border-b-gray-400'>
+        <div>
+          <Link to='/personalization' className='absolute top-5 left-8'>Back</Link>
+          <Link to='/readerdashboard' className='absolute top-5 right-8'>Skip</Link>
+        </div>
         <div className='text-center'>
-        <Suggest/>
+         <Suggest/>
         </div>
 
-        <p className='text-center font-bold mt-3 text-xs md:text-base'>{state}</p>
+         <p className='text-center font-bold mt-3 text-xs md:text-base'>{state}</p>
           <div className='flex flex-col text-[#001F54] justify-center items-center mt-5' >
   
 

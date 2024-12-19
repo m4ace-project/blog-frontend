@@ -48,7 +48,9 @@ console.log(data);
           <div className="max-w-7xl mx-auto px-2">
             <div className="flex items-center justify-between flex-wrap">
             <div className=" w-full sm:w-auto flex ">
+              <Link to='/'>
                 <img src={Frame198} alt="logo" className="h-12 w-auto " />
+              </Link>
                 <div className="sm:hidden flex-grow">
                 </div>
                 <div className="sm:hidden ">

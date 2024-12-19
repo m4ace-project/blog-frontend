@@ -23,40 +23,6 @@ function ReadersDashboard2() {
   const [post, setPost] = useState();
 
 
-    useEffect(() => {
-      const fetchAuthors = async () => {
-        const token = localStorage.getItem('token');
-        try {
-          
-          const response = await fetch(`https://olaniyijoe.pythonanywhere.com/api/posts/${id}`, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-          });
-  
-          if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-          }
-  
-          const data = await response.json();
-          setPost(data);
-          console.log(data);
-  
-          if (data.length === 0) {
-            toast.error('No Post available.')
-          };
-          
-        } catch (err) {
-          setError(err.message);
-        } 
-      };
-  
-  
-      fetchAuthors();
-    }, []);
-
-
-
     return (
       <div className="bg-[#FFFCD8] min-h-screen">
         <ToastContainer />
@@ -69,14 +35,6 @@ function ReadersDashboard2() {
         </div> */}
       </div>
 
-      {posts.map( (post) => (
-            <Checkbox 
-            key={author.id}
-            text={author.author_name} 
-            id={author.id}
-            onChange={() => handleCheckboxChange(author.id)}
-            />
-            ))}
     <div className="w-full items-center justify-center">
        <h1 className="mt-2 text-[#001F54] font-inter font-medium text-xl text-center">
         Vegan Parenting Tips: Raising Children on a Plant-Based Diet

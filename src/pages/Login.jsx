@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 
 
@@ -73,7 +73,9 @@ function Login() {
     <div className="bg-[#FFFCD8] h-[100vh]">
       <ToastContainer/>
   <div>
+  <Link to='/'>
     <img className="w-11 pt-2 ml-2" src="./src/assets/Frame 199.png" alt="" />
+  </Link>
   </div>
   <div className=" text-[#001F54] mt-24  ">
     <p className="font-bold text-3xl text-center" >Login</p>

@@ -56,8 +56,9 @@ function Inbox() {
 
     return (
         <div className="bg-[#FFFCD8] min-h-screen">
-            <img src={Frame199} alt="logo" className="h-12 w-auto pt-2 ml-3" />
-          
+            <Link to='/'>
+                <img src={Frame199} alt="logo" className="h-12 w-auto pt-2 ml-3" />
+            </Link>
             <div className="text-center justify-center mt-20 max-w-md mx-auto px-8 sm:px-6 md:px-8">
                 <img src={MailIcon} alt="Mail Icon" className="mx-auto h-12 w-12 mb-5" />
 

@@ -27,8 +27,9 @@ function PostHeader() {
           <Link to={'/aboutyou'}><img src="./src/assets/profile.svg" alt=""/></Link>
         </div>
         <div className="md:hidden flex items-center justify-between">
+        <Link to='/'>
           <img src="./src/assets/Logo.svg" className='w-[3rem]' alt="" />
-          
+        </Link>
           <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1" onClick={toggleMenu}>
             <div className="w-10 h-1 bg-gray-800"></div>
               <div className="w-10 h-1 bg-gray-800"></div>
