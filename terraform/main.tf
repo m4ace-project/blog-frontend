@@ -17,10 +17,10 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
   }
 }
 
- resource "aws_s3_bucket_acl" "bucket_acl" {
-     bucket = aws_s3_bucket.m-trend-app.id
-     acl    = "public-read"
- }
+#  resource "aws_s3_bucket_acl" "bucket_acl" {
+#      bucket = aws_s3_bucket.m-trend-app.id
+#      acl    = "public-read"
+#  }
 
 resource "aws_s3_bucket_public_access_block" "m-trend-app-public_access" {
     bucket = aws_s3_bucket.m-trend-app.id
