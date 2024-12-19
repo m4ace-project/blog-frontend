@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
     <div  className="flex text-[#001F54] ">
         <div>
+        <Link to='/'>
             <img className="w-11 mt-2 ml-2" src="./src/assets/Frame 199.png" alt="" />
+        </Link>
         </div>
         <ul className=" hidden bg-white md:flex  md:mx-auto  space-x-5 md:space-x-10 pl-4 text-xs py-5 md:text-sm font-bold lg:">
             <li className="flex text-[13px] "> Services <img className="h-[0.7em] w-[0.6em] mt-[0.6em] ml-1" src="./src/assets/Vector.png" alt="" /></li>

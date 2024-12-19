@@ -9,7 +9,9 @@ function NavbarReader() {
         <div className="max-w-7xl mx-auto px-2">
           <div className="flex items-center justify-between flex-wrap">
             <div className="flex items-center">
+            <Link to='/'>
               <img src= './src/assets/Frame 198.png' alt="logo" className="h-12 w-auto"/>
+            </Link>
               <div className="hidden md:flex space-x-4 ml-12">
                 {['Services', 'Articles', 'Pricing', 'Resources', 'Contact Us'].map((item, index) => (
                   <a key={index} href="#" className="text-[#001F54] font-inter font-medium flex hover:text-orange-500">

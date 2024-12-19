@@ -13,10 +13,11 @@ function Widget() {
   return (
     <div>
       <div className="hidden md:block md:h-[100vh] h-[5rem] w-[100%] md:bg-gradient-to-b from-[#FFEB36] to-[#FFFFFF] bg-[#FFEB36] md:pt-8 md:px-2 lg:p-8">
+      <Link to='/'>
         <img src="./src/assets/Logo.svg" className='md:block md:w-[3rem]' alt="" />
-
+      </Link>
         <div className='md:grid gap-5 mt-12 text-white'>
-            <Link to={'/readpost'} className='flex justify-center items-center bg-[#A62B05] h-10 rounded-2xl gap-2'> <img src="./src/assets/mdi_home-outline.svg" alt="" /> Homepage</Link>
+            <Link to={'/'} className='flex justify-center items-center bg-[#A62B05] h-10 rounded-2xl gap-2'> <img src="./src/assets/mdi_home-outline.svg" alt="" /> Homepage</Link>
             <Link to={'/aboutyou'} className='flex justify-center items-center bg-[#FF5722] h-10 rounded-2xl gap-2'> <img src="./src/assets/profile-circle.svg" alt="" />Profile</Link>
             <Link to={'/createpost'} className='flex justify-center items-center bg-[#FF5722] h-10 rounded-2xl gap-2'> <img src="./src/assets/eos-icons_cluster-management-outlined.svg" alt="" />Manage Posts</Link>
             <button className='flex justify-center items-center bg-[#FF5722] h-10 rounded-2xl gap-2'> <img src="./src/assets/Vector.svg" alt="" />Privacy Policy</button>
@@ -37,10 +38,12 @@ function Widget() {
         } transition-transform duration-300 ease-in-out z-50`}
       >
         <div className="p-4">
+        <Link to='/'>
           <img src="./src/assets/Logo.svg" className="w-[3rem]" alt="" />
+        </Link>
         </div>
         <div className="grid gap-5 mt-12 mx-5 text-white">
-          <Link to={'/readpost'} className="flex justify-center items-center bg-[#A62B05] h-10 rounded-2xl gap-2">
+          <Link to={'/'} className="flex justify-center items-center bg-[#A62B05] h-10 rounded-2xl gap-2">
             <img src="./src/assets/mdi_home-outline.svg" alt="" /> Homepage
           </Link>
           <Link to={'/aboutyou'} className="flex justify-center items-center bg-[#FF5722] h-10 rounded-2xl gap-2">

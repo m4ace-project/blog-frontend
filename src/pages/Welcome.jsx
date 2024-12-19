@@ -4,9 +4,9 @@ function Welcome() {
   return (
     <div>
         <div className='bg-[#FFFCD8] h-[100vh] font-mono'>
-    
+          <Link to='/'>
             <img src="./src/assets/Logo.svg" alt="M_Trend Logo" className='p-10 w-[150px]' />
-
+          </Link>
             <p className='text-center font-bold text-6xl mb-5'>WELCOME BACK</p>
         
             <div className='grid w-[300px] mx-auto mb-6'>

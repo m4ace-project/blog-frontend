@@ -59,7 +59,9 @@ function SignUp() {
     return (
         <div className="bg-[#FFFCD8] min-h-screen">
             <ToastContainer/>
+            <Link to='/'>
               <img src={Frame199} alt="logo" className="h-12 w-auto pt-2 ml-3" />
+            </Link>
             <div className="w-full max-w-md mx-auto p-6 rounded-md mt-7 items-center justify-center">
                 {
                     showAlert && <h1 className='left-1 bg-red-400 p-2 text-white'>{alert}</h1>

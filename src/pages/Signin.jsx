@@ -7,8 +7,9 @@ function Signin() {
     let role = {item: "yes"}
     return (
         <div className="min-h-screen bg-[#FFFCD8]">
-
+            <Link to='/'>
                 <img src={Frame199} alt="logo" className="h-12 w-auto pt-2 ml-3" />
+            </Link>
             <div className="text-center justify-center mt-20 max-w-md mx-auto px-4 sm:px-6 md:px-8">
                 <h1 className="text-3xl md:text-4xl font-inter font-semibold text-[#001F54]">Get Started</h1>
                 <p className="text-lg md:text-xl font-inter text-[#001F54] font-semibold mb-8">Select a category</p>
