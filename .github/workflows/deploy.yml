@@ -46,13 +46,7 @@ jobs:
             - name: Deploy to S3
               run: aws s3 sync ./dist s3://m-trend-appj --acl public-read
 
- - name: Set environment variables
+             - name: Set environment variables
               env:
-                  NEXT_PUBLIC_POOL_ID: ${{ secrets.NEXT_PUBLIC_POOL_ID }}
-                  NEXT_PUBLIC_APP_CLIENT_ID:
-                      ${{ secrets.NEXT_PUBLIC_APP_CLIENT_ID }}
-              run: |
-                  echo "NEXT_PUBLIC_POOL_ID=$NEXT_PUBLIC_POOL_ID" >> .env.local
-                  echo "NEXT_PUBLIC_APP_CLIENT_ID=$NEXT_PUBLIC_APP_CLIENT_ID" >> .env.local
-
-            
+                  VITE_EDITOR_KEY: ${{ secrets.VITE_EDITOR_KEY}}
+                  
