@@ -33,6 +33,8 @@ function ReaderDashboard() {
         }
 
         const data = await response.json();
+        console.log(data);
+        
         setPosts(data);
         setLoading(false);
       } catch (err) {
@@ -57,7 +59,7 @@ function ReaderDashboard() {
       <h5 className='font-bold mb-6'>FEATURED POST</h5>
       {posts.length > 0 && (
           <div className="mb-6">
-            <Link to={`/post/${posts[0].id}`}>
+            <Link to={`/readersdashboard2/${posts[0].post_id}`}>
               {/* <img
                 src={posts[0].blog_pic}
                 alt={posts[0].title}
@@ -86,15 +88,15 @@ function ReaderDashboard() {
             </div>
           ))}
         </div>
-        <div className="flex flex-col-reverse mb-5 mt-4 md:flex-row items-center justify-between max-w-7xl mx-auto">
-          <div className="md:w-100">
+        <div className="flex flex-col mb-5 mt-4 md:grid md:grid-cols-2 items-center justify-between max-w-7xl mx-auto">
+          <div>
             <img
-              src={posts[1]?.image || '/path/to/fallback-image.jpg'}
+              src='./src/assets/Rectangle 28.png'
               alt="Subscription Image"
-              className="w-full ml-3 md:h-96 object-cover mx-auto"
+              className="ml-3 md:h-96 object-cover mx-auto"
             />
           </div>
-          <div className="md:w-96 ml-12 text-center p-1">
+          <div className="ml-12 text-center p-1">
             <div>
               <p className="text-[#001F54] font-inter align-left font-semibold mr-12 mt-4 text-sm md:text-2xl">
                 Never miss a post, video, or exclusive announcement. Subscribe to our newsletter to get instant access
