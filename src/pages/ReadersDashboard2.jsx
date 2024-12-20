@@ -5,19 +5,13 @@ import { Link } from 'react-router-dom';
 import NavbarReader from '/src/components/common/NavbarReader';
 import FooterReader from '/src/components/common/FooterReader';
 import PlaceHolder from '../assets/placeholder.gif'
-import Rectanglefood from '../assets/Food.png';
-import Rectangle34 from '../assets/Rectangle 34.png';
-import Rectangle35 from '../assets/Rectangle 35.png';
-import Rectangle36 from '../assets/Rectangle 36.png';
-import Rectangle22 from '../assets/Rectangle 22.png';
-import MessageIcon from'../assets/messages.png';
 import HeartIcon from'../assets/heart.png';
 import Vector8 from'../assets/Vector (8).png';
 import Vector3 from'../assets/Vector (3).png';
 import Vector4 from'../assets/Vector (4).png';
 import Vector5 from'../assets/Vector (5).png';
 import Vector7 from'../assets/Vector (7).png';
-import Vector9 from'../assets/Vector (9).png';
+
 function ReadersDashboard2() {
 
   const {id} = useParams();
@@ -96,21 +90,16 @@ function ReadersDashboard2() {
           <img src={PlaceHolder} alt={post.title} className="w-full" />
         </div>
         <div className="max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto text-justify mt-4 px-4">
-
-          <p className="text-sm md:text-base leading-relaxed">{post.preview}</p>
-
-
+    
           {isAuthenticated ? (
             <div>
               <p className="text-sm md:text-base leading-relaxed">{post.content}</p>
             </div>
           ) : (
             <div>
-              <p className="text-sm md:text-base leading-relaxed">{post.preview}</p>
+              <p className="text-sm md:text-base leading-relaxed">{post.preview} <Link to='/signin' className='underline text-blue-600'>Read More</Link></p>
             </div>
           )}
-
-
 
         </div>
       </div>
