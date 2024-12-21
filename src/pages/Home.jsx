@@ -55,9 +55,8 @@ console.log(data);
   return (
     <div>
       <div
-        className="bg-cover bg-fixed h-screen w-full overflow-x-hidden bg-right-bottom gradient-div"
+        className="bg-cover bg-fixed min-h-screen w-full overflow-x-hidden bg-right-bottom gradient-div"
         // style={{ backgroundImage: `url(${OrangeBackground})` }}
-
         >
           <ToastContainer/>
         <nav className="bg-[#FFFFFF] p-4">
