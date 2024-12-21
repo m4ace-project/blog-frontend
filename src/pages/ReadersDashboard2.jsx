@@ -55,8 +55,11 @@ function ReadersDashboard2() {
   }, [id]);
 
   if (loading) {
-    return <div className="text-center mt-8">Loading...</div>;
+    return (
+      <div className="loader h-screen w-sreen flex item-center justify-center"></div>  
+    )
   }
+
 
   if (!post) {
     return <div className="text-center mt-8">No post found.</div>;
@@ -65,7 +68,7 @@ function ReadersDashboard2() {
 
 
     return (
-      <div className="bg-[#FFFCD8] min-h-screen">
+      <div className="bg-[#FFFCD8] min-h-screen relative">
         <ToastContainer />
         <NavbarReader />
 
@@ -80,10 +83,10 @@ function ReadersDashboard2() {
 
       
 
-    <div className="w-full items-center justify-center">
+    <div className="w-full min-h-screen items-center justify-center">
 
-    <div className="px-3 mt-5 text-[#001F54] font-inter font-medium text-sm w-full">
-        <h1 className="text-xl text-center">{post.title}</h1>
+    <div className="px-3 mt-5 text-[#001F54] font-poppins font-medium text-sm w-full">
+        <h1 className="text-xl text-center font-bold">{post.title}</h1>
       </div>
       <div className="w-full items-center justify-center">
         <div className="w-full max-w-md mx-auto my-10">
@@ -125,9 +128,9 @@ function ReadersDashboard2() {
         </div>
       </div>
     </div>
-
+{/*
       <h1 className="text-[#001F54] font-inter font-medium text-xl ml-14 mt-14 mb-10">More posts from the Author</h1>
-      {/* <div className="flex flex-wrap">
+       <div className="flex flex-wrap">
       {[Rectanglefood, Rectangle34, Rectangle35, Rectangle36].map((image, index) => (
        <div key={index} className="w-full md:w-1/2 lg:w-1/4 p-2">
       <img src={image} alt={`image${index}`} className="w-full h-48 object-cover rounded-lg" />
@@ -147,10 +150,13 @@ function ReadersDashboard2() {
            <img src={MessageIcon} alt="messageicon" />
            </Link>
            </div>
-           </div> */}
+           </div> 
+        
+        <div className="absolute bottom-0">
+
         <FooterReader/>
-        
-        
+        </div>
+        */}
         </div>
 
   );

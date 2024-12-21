@@ -47,12 +47,18 @@ console.log(data);
   }, []);
   
   
-
+  if (loading) {
+    return (
+      <div className="loader h-screen w-sreen flex item-center justify-center"></div>  
+    )
+  }
   return (
     <div>
       <div
-        className="bg-cover bg-fixed w-full overflow-x-hidden bg-right-bottom"
-        style={{ backgroundImage: `url(${OrangeBackground})` }}>
+        className="bg-cover bg-fixed h-screen w-full overflow-x-hidden bg-right-bottom gradient-div"
+        // style={{ backgroundImage: `url(${OrangeBackground})` }}
+
+        >
           <ToastContainer/>
         <nav className="bg-[#FFFFFF] p-4">
           <div className="max-w-7xl mx-auto px-2">
@@ -118,8 +124,8 @@ console.log(data);
         </nav>
         <main>
           <div className="flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto" data-aos="fade-left">
-            <div className="md:w-96 ml-12 text-center p-1">
-              <h6 className="text-[#001F54] font-inter font-bold text-5xl md:text-5xl">
+            <div className="md:w-[608px] ml-12 text-center p-1 text-poppins">
+              <h6 className="text-[#001F54] font-inter font-bold text-5xl md:text-[72px]">
                 Welcome to Our Creative Hub
               </h6>
               <p className="text-[#001F54] font-inter font-semibold mt-4 text-lg md:text-2xl">
@@ -145,27 +151,28 @@ console.log(data);
                 className="w-full ml-3 md:h-96 object-cover mx-auto"/>
             </div>
           </div>
-          <div className="flex flex-wrap ml-10 my-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-[32px] px-10 my-4">
             {loading ? (
               <p className="text-center w-full text-[#001F54] font-medium">Loading...</p>
             ) : error ? (
               <p className="text-center w-full text-red-500 font-medium" data-aos="fade-in">{error}</p>
             ) : (
               posts.map((post, index) => (
-                
-                <Link to={`/readersdashboard2/${post.post_id}`} key={index} className="w-full md:w-1/2 lg:w-1/4 p-2 shadow bg-white rounded-xl" >
+                <>
+                <Link to={`/readersdashboard2/${post.post_id}`} key={index} className="w-full p-2 bg-[#FFF155] block rounded-[24] shadow-sm" >
                  <img
                   src={PlaceHolder}
                   alt={'img'}
                   className="w-full h-40 object-cover rounded-md"
                 />
-                  <h3 className="mt-2 text-[#001F54] font-inter  font-bold text-2xl">
+                  <p className="mt-2 text-[#001F54] font-medium text-[18px] text-center">
                     {post.title}
                   </h3>
                   <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
                     {post.preview}
                   </p>
                 </Link>
+                </>
               ))
             )}
           </div>

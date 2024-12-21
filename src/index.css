@@ -7,6 +7,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+	font-family: "Poppins", serif !important;
+}
+
+.loader {
+	border: 8px solid #f3f3f3; /* Light gray */
+	border-top: 8px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 1s linear infinite;
+	margin: 100px auto; /* Center the loader */
+  }
+  
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
+  
 @media print {
 	body {
 		margin: 0 !important;
@@ -81,6 +103,11 @@
 	box-shadow: 5px 5px 0 #ffe6ef;
 }
 
+.gradient-div {
+	background: linear-gradient(135deg, #FFEA00, #FFD700);
+	
+  }
+  
 .ck-content blockquote.side-quote {
 	font-family: 'Oswald';
 	font-style: normal;
