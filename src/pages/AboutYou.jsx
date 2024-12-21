@@ -34,6 +34,8 @@ function AboutYou() {
 
         if (response.status === 404) {
           setIsProfileAvailable(false);
+        } else if (response.status === 500) {
+          throw new Error('Server error: Unable to fetch profile.');
         } else if (!response.ok) {
           throw new Error('Failed to fetch profile');
         } else {
@@ -45,6 +47,7 @@ function AboutYou() {
         setIsProfileAvailable(true);
         }
       } catch (error) {
+        setError(error.message);
         toast.error(error.message);
       } finally {
         setLoading(false);
