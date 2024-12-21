@@ -167,9 +167,6 @@ console.log(data);
                 />
                   <p className="mt-2 text-[#001F54] font-medium text-[18px] text-center">
                     {post.title}
-                  </h3>
-                  <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
-                    {post.preview}
                   </p>
                 </Link>
                 </>
