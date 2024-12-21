@@ -51,7 +51,7 @@ console.log(data);
   return (
     <div>
       <div
-        className="bg-cover bg-fixed h-screen w-full overflow-x-hidden bg-right-bottom"
+        className="bg-cover bg-fixed w-full overflow-x-hidden bg-right-bottom"
         style={{ backgroundImage: `url(${OrangeBackground})` }}>
           <ToastContainer/>
         <nav className="bg-[#FFFFFF] p-4">
@@ -153,14 +153,17 @@ console.log(data);
             ) : (
               posts.map((post, index) => (
                 
-                <Link to={`/readersdashboard2/${post.post_id}`} key={index} className="w-full md:w-1/2 lg:w-1/4 p-2" >
+                <Link to={`/readersdashboard2/${post.post_id}`} key={index} className="w-full md:w-1/2 lg:w-1/4 p-2 shadow bg-white rounded-xl" >
                  <img
                   src={PlaceHolder}
                   alt={'img'}
                   className="w-full h-40 object-cover rounded-md"
                 />
-                  <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
+                  <h3 className="mt-2 text-[#001F54] font-inter  font-bold text-2xl">
                     {post.title}
+                  </h3>
+                  <p className="mt-2 text-[#001F54] font-inter font-medium text-sm">
+                    {post.preview}
                   </p>
                 </Link>
               ))
