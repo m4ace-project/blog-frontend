@@ -94,52 +94,39 @@ function ReadersDashboard2() {
           {isAuthenticated ? (
             <div>
               <p className="text-sm md:text-base leading-relaxed">{post.content}</p>
+              <div className="flex flex-col items-center text-[#001F54] font-inter font-medium text-sm px-4">
+        
+                <div className="flex space-x-4 items-center justify-center md:gap-4 gap-2 mt-10">
+                    <img src={HeartIcon} alt="Heart" className="h-6 w-6" />
+                    <img src={Vector8} alt="Icon" className="h-6 w-6" /> 
+                    <img src={Vector3} alt="Icon" className="h-6 w-6" />
+                    <img src={Vector4} alt="Icon" className="h-6 w-6" />
+                    <img src={Vector5} alt="Icon" className="h-6 w-6" />
+                    <img src={Vector7} alt="Icon" className="h-6 w-6" />
+                </div>
+                <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl mt-8 mx-auto mb-6">
+                      <div className="flex items-center justify-center mb-5">
+                        <img src={Vector7} alt="Icon" className="h-5 w-5 text-gray-400 mr-2" />
+                        <span className="text-gray-500 text-sm">Write a comment</span>
+                    </div>
+                    <textarea
+                        className="w-full rounded-2xl h-20 p-5 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#001F54] resize-none bg-transparent text-sm text-gray-800"
+                        placeholder="Write a comment"
+                    ></textarea>
+                </div>
+              </div>
             </div>
           ) : (
-            <div>
+            <div className=''>
               <p className="text-sm md:text-base leading-relaxed">{post.preview} <Link to='/signin' className='underline text-blue-600'>Read More</Link></p>
             </div>
           )}
 
         </div>
       </div>
-
-      <div className="flex flex-col items-center text-[#001F54] font-inter font-medium text-sm px-4">
-        
-        <div className="flex space-x-4 items-center justify-center md:gap-4 gap-2 mt-10">
-            <img src={HeartIcon} alt="Heart" className="h-6 w-6" />
-            <img src={Vector8} alt="Icon" className="h-6 w-6" /> 
-            <img src={Vector3} alt="Icon" className="h-6 w-6" />
-            <img src={Vector4} alt="Icon" className="h-6 w-6" />
-            <img src={Vector5} alt="Icon" className="h-6 w-6" />
-            <img src={Vector7} alt="Icon" className="h-6 w-6" />
-        </div>
-        <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl mt-8 mx-auto mb-6">
-              <div className="flex items-center justify-center mb-5">
-                <img src={Vector7} alt="Icon" className="h-5 w-5 text-gray-400 mr-2" />
-                <span className="text-gray-500 text-sm">Write a comment</span>
-            </div>
-            <textarea
-                className="w-full rounded-2xl h-20 p-5 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#001F54] resize-none bg-transparent text-sm text-gray-800"
-                placeholder="Write a comment"
-            ></textarea>
-        </div>
-
-
-      </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-      <h1 className="text-[#001F54] font-inter font-medium text-xl ml-3 ">More posts from the Author</h1>
+      <h1 className="text-[#001F54] font-inter font-medium text-xl ml-14 mt-14 mb-10">More posts from the Author</h1>
       {/* <div className="flex flex-wrap">
       {[Rectanglefood, Rectangle34, Rectangle35, Rectangle36].map((image, index) => (
        <div key={index} className="w-full md:w-1/2 lg:w-1/4 p-2">
