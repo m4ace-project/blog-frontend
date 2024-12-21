@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Frame198 from '../assets/Frame 198.png';
 import Vector from '../assets/Vector.png';
 import Frame6 from '../assets/Frame 6.png';
@@ -15,8 +17,16 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     const fetchPosts = async () => {
+
+      AOS.init({
+        duration: 2000,
+        easing: 'ease-in-out',
+        once: true,
+      });
+
       try {
         const response = await fetch('https://olaniyijoe.pythonanywhere.com/api/postview/');
         if (!response.ok) {
@@ -107,7 +117,7 @@ console.log(data);
           </div>
         </nav>
         <main>
-          <div className="flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto">
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto" data-aos="fade-left">
             <div className="md:w-96 ml-12 text-center p-1">
               <h6 className="text-[#001F54] font-inter font-bold text-5xl md:text-5xl">
                 Welcome to Our Creative Hub
@@ -116,19 +126,19 @@ console.log(data);
                 Create. Share. Inspire. Connect
               </p>
               <div className="mt-6 flex place-content-center">
-                <button className="bg-[#FF5722] text-[#FFFFFF] rounded-md font-inter font-medium text-md w-32 md:w-40 px-4 py-2 mb-2 mr-3">
+                <button className="bg-[#FF5722] text-[#FFFFFF] rounded-md font-inter font-medium text-md w-32 md:w-40 px-4 py-2 mb-2 mr-3" data-aos="flip-left">
                   <Link to="/Readerdashboard" className="text-[#FFFFFF]">
                     Read
                   </Link>
                 </button>
-                <button className="bg-[#FF5722] hover:bg-orange-600 text-[#FFFFFF] rounded-md font-inter font-medium text-md w-32 md:w-40 px-4 py-2 mb-2 ml-3">
+                <button className="bg-[#FF5722] hover:bg-orange-600 text-[#FFFFFF] rounded-md font-inter font-medium text-md w-32 md:w-40 px-4 py-2 mb-2 ml-3" data-aos="flip-right">
                   <Link to="/Welcome" className="text-[#FFFFFF]">
                     Create
                   </Link>
                 </button>
               </div>
             </div>
-            <div className="md:w-100">
+            <div className="md:w-100" data-aos="zoom-in">
               <img
                 src={Frame6}
                 alt="Creative workspace"
@@ -139,11 +149,11 @@ console.log(data);
             {loading ? (
               <p className="text-center w-full text-[#001F54] font-medium">Loading...</p>
             ) : error ? (
-              <p className="text-center w-full text-red-500 font-medium">{error}</p>
+              <p className="text-center w-full text-red-500 font-medium" data-aos="fade-in">{error}</p>
             ) : (
               posts.map((post, index) => (
                 
-                <Link to={`/readersdashboard2/${post.post_id}`} key={index} className="w-full md:w-1/2 lg:w-1/4 p-2">
+                <Link to={`/readersdashboard2/${post.post_id}`} key={index} className="w-full md:w-1/2 lg:w-1/4 p-2" >
                  <img
                   src={PlaceHolder}
                   alt={'img'}
