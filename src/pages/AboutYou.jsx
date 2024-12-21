@@ -38,10 +38,11 @@ function AboutYou() {
           throw new Error('Failed to fetch profile');
         } else {
         const data = await response.json();
-        setName(data?.name);
-        setUsername(data?.username);
-        setBio(data?.bio);
-        setProfileImage(data?.profile_pic);
+        setName(data?.name || '');
+        setUsername(data?.username || '');
+        setBio(data?.bio || '');
+        setProfileImage(data?.profile_pic || './src/assets/image.svg');
+        setIsProfileAvailable(true);
         }
       } catch (error) {
         toast.error(error.message);
@@ -52,6 +53,15 @@ function AboutYou() {
 
     fetchProfile();
   }, []); 
+
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
 
   // if (error) {
@@ -71,7 +81,7 @@ function AboutYou() {
             <h5 className='text-[#001F54] font-bold text-xl text-center'>About</h5>
             <div className='bg-white text-[#001F54] w-full h-[48%] p-5 mt-5'>
               <h5 className='font-bold text-center text-lg'>Tell the world about yourself</h5>
-              <p className='my-7'>{bio || 'Here’s where you can share more about yourself: your history, work experience, accomplishments, interests, dreams, and more. You can even add images and use rich text to personalize your bio.'}</p>
+              <p className='my-7'>{bio}</p>
               {/* <div className='flex justify-center'>
                 <button className='bg-[#FF5722] text-white w-[9rem] h-[2rem] rounded-xl'>Get Started</button>
               </div> */}
@@ -80,14 +90,14 @@ function AboutYou() {
             <div className='flex'>
               <div className='flex justify-center items-center mr-5'>
               <img
-               src={profileImage || './src/assets/image.svg'}
+               src={profileImage}
                alt="Profile"
                 className='w-16 h-16 rounded-full'
              />
              </div>
              <div className='font-bold'>
-              <p className='mb-3'>{name || 'Fullname'}</p>
-              <p>{username || 'Username'}</p>
+              <p className='mb-3'>{name}</p>
+              <p>{username}</p>
              </div>
             </div>
             </div>
